@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2013-2016 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>quartzdesk-test-quartz-v2-1-1</artifactId>
+  <packaging>war</packaging>
+
+  <description>
+    A test web-application build on top of Quartz API v2.1.1.
+  </description>
+
+  <parent>
+    <groupId>com.quartzdesk-test-webapps</groupId>
+    <artifactId>quartzdesk-test-quartz-v2-1-x</artifactId>
+    <version>2.7.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <org.quartz-scheduler.quartz.version>2.1.1</org.quartz-scheduler.quartz.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>com.quartzdesk-test-webapps</groupId>
+      <artifactId>quartzdesk-test-common</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- QuartzDesk dependencies -->
+
+    <!--
+      Included so that we can debug the QuartzDesk JVM agent with test webapps.
+    -->
+    <dependency>
+      <groupId>com.quartzdesk</groupId>
+      <artifactId>quartzdesk-agent</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!--
+      quartzdesk-api is a compile-time dependency because of the TestJobWithWorkerThreads
+      that uses this API to intercept log messages produced by worker threads spawned by
+      the job execution thread.
+    -->
+    <dependency>
+      <groupId>com.quartzdesk</groupId>
+      <artifactId>quartzdesk-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- 3rd party dependencies -->
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <!-- Provided by the servlet engine runtime -->
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <!-- Provided by the servlet engine runtime -->
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.management</groupId>
+      <artifactId>jmxremote_optional</artifactId>
+      <!-- Required for the JMXMP JMX protocol -->
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.quartz-scheduler</groupId>
+      <artifactId>quartz</artifactId>
+      <version>${org.quartz-scheduler.quartz.version}</version>
+
+      <exclusions>
+        <!--
+          Log4j API provided by org.slf4j:log4j-over-slf4j.
+        -->
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>log4j-over-slf4j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jul-to-slf4j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+</project>

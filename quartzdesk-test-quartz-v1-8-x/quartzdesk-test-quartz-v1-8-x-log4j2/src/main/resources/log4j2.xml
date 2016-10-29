@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2013-2016 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+  -->
+
+<configuration status="warn"
+               strict="false"
+               name="quartzdesk-quartzdesk-test-quartz-v1-8-x-log4j2"
+               verbose="false">
+
+  <appenders>
+
+    <RollingFile name="FILE"
+              fileName="${sys:quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j2.log"
+              filePattern="${sys:quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j2.log.%d{yyyy-MM-dd}">
+      <!--<PatternLayout pattern="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
+      <PatternLayout pattern="[%d{ISO8601}] %-5p [%t] [%C:%L] - %m%n"/>
+      <filters>
+        <ThresholdFilter level="info"/>
+      </filters>
+      <TimeBasedTriggeringPolicy/>
+    </RollingFile>
+
+    <RollingFile name="TRACE_FILE"
+              fileName="${sys:quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j2-trace.log"
+              filePattern="${sys:quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j2-trace.log.%i">
+      <!--<PatternLayout pattern="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
+      <PatternLayout pattern="[%d{ISO8601}] %-5p [%t] [%C:%L] - %m%n"/>
+      <filters>
+        <ThresholdFilter level="trace"/>
+      </filters>
+      <SizeBasedTriggeringPolicy size="1 MB"/>
+    </RollingFile>
+
+    <!-- QuartzDeskJvmAgentClassic is currently unusable - see comments in ClassicLog4j2InterceptionAppender -->
+    <!--<QuartzDeskJvmAgentClassic name="QUARTZDESK_JVM_AGENT">-->
+      <!--&lt;!&ndash;<PatternLayout pattern="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>&ndash;&gt;-->
+      <!--<PatternLayout pattern="[%d{ISO8601}] %-5p [%t] [%C:%L] - %m%n"/>-->
+      <!--<filters>-->
+        <!--<ThresholdFilter level="trace"/>-->
+      <!--</filters>-->
+    <!--</QuartzDeskJvmAgentClassic>-->
+
+    <QuartzDeskJvmAgent name="QUARTZDESK_JVM_AGENT">
+      <!--<PatternLayout pattern="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
+      <PatternLayout pattern="[%d{ISO8601}] %-5p [%t] [%C:%L] - %m%n"/>
+      <filters>
+        <ThresholdFilter level="trace"/>
+      </filters>
+    </QuartzDeskJvmAgent>
+
+  </appenders>
+
+  <loggers>
+
+    <logger name="com.quartzdesk"
+            level="trace"
+            additivity="false">
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="TRACE_FILE"/>
+      <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
+    </logger>
+
+    <!--
+      Loading of Spring application contexts from XML resources.
+    -->
+    <logger name="org.springframework.beans.factory.xml"
+            level="info"
+            additivity="false">
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="TRACE_FILE"/>
+      <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
+    </logger>
+
+    <!--
+      Loading of properties resources (eg. through the context:property-placeholder directive).
+    -->
+    <logger name="org.springframework.core.io.support.PropertiesLoaderSupport"
+            level="info"
+            additivity="false">
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="TRACE_FILE"/>
+      <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
+    </logger>
+
+    <!--
+      Spring web.
+    -->
+    <logger name="org.springframework.web"
+            level="trace"
+            additivity="false">
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="TRACE_FILE"/>
+      <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
+    </logger>
+
+
+    <root level="warn">
+      <appender-ref ref="FILE"/>
+      <appender-ref ref="TRACE_FILE"/>
+      <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
+    </root>
+
+  </loggers>
+
+</configuration>
