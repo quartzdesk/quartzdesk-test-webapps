@@ -12,12 +12,14 @@
   <packaging>pom</packaging>
   <version>2.7.0-SNAPSHOT</version>
 
-  <properties>
-    <!--
-      Implementation-Vendor-Id used in manifests.
-    -->
-    <vendor.id>com.quartzdesk</vendor.id>
 
+  <parent>
+    <groupId>com.quartzdesk-parent-pom</groupId>
+    <artifactId>quartzdesk-parent-pom</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <properties>
 		<com.quartzdesk.version>2.7.0</com.quartzdesk.version>
 
     <org.slf4j.version>1.7.21</org.slf4j.version>
