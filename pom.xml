@@ -27,7 +27,7 @@
 
   <name>QuartzDesk Test Web Applications</name>
 
-  <description>QuartzDesk test web applications using various Quartz scheduler versions and Java logging frameworks.</description>
+  <description>QuartzDesk test web applications using various Java Quartz scheduler versions and Java logging frameworks.</description>
 
   <inceptionYear>2013</inceptionYear>
 
@@ -39,7 +39,7 @@
   <scm>
     <developerConnection>scm:svn:svn://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps/trunk</developerConnection>
     <connection>scm:svn:svn://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps/trunk</connection>
-    <url>http://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps</url>
+    <url>https://github.com/quartzdesk/quartzdesk-test-webapps</url>
   </scm>
 
   <modules>
