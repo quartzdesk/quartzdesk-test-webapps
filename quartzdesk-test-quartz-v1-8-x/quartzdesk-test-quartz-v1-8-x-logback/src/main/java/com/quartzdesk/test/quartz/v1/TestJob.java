@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2013-2016 QuartzDesk.com. All Rights Reserved.
- * QuartzDesk.com PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Copyright (c) 2013-2017 QuartzDesk.com.
+ * Licensed under the MIT license (https://opensource.org/licenses/MIT).
  */
 
 package com.quartzdesk.test.quartz.v1;

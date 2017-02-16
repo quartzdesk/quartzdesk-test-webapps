@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2013-2017 QuartzDesk.com.
+ * Licensed under the MIT license (https://opensource.org/licenses/MIT).
+ */
+
 package com.quartzdesk.test.quartz;
 
 import org.slf4j.Logger;

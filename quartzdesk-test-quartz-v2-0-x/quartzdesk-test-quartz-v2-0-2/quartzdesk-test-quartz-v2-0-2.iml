@@ -34,8 +34,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="quartzdesk-test-common" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.3.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.quartzdesk:quartzdesk-agent:2.7.0" level="project" />
-    <orderEntry type="library" name="Maven: com.quartzdesk:quartzdesk-api:2.7.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.quartzdesk:quartzdesk-agent:2.8.0" level="project" />
+    <orderEntry type="library" name="Maven: com.quartzdesk:quartzdesk-api:2.8.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-classic:1.1.7" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: ch.qos.logback:logback-core:1.1.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
