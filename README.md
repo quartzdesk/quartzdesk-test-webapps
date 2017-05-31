@@ -103,4 +103,4 @@ If you want to contribute your changes and improvements, please contact us so th
 
 # Copyright and License
 
-Code and documentation copyright 2013-2016 the QuartzDesk Test Web Applications authors and QuartzDesk.com. Code and docs released under the MIT license.
+Code and documentation copyright 2013-2017 the QuartzDesk Test Web Applications authors and QuartzDesk.com. Code and docs released under the MIT license.
