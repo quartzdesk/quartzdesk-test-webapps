@@ -32,6 +32,14 @@
   </bean>
 
 
+  <!--
+    Used by the SpringBeanMethodInvokingJob job implementation class to look up the target Spring bean in the
+    application's context.
+  -->
+  <bean id="applicationContextAccessor"
+        class="com.quartzdesk.api.spring.ApplicationContextAccessor"/>
+
+
   <!-- Quartz-based scheduler -->
   <bean id="quartzScheduler"
         class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

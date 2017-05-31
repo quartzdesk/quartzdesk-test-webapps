@@ -54,11 +54,30 @@ A test job implementation class that extends the `com.quartzdesk.test.quartz.vX.
 
 
 ## ![](media/job-impl-class-16x16.png) com.quartzdesk.test.quartz.vX.PersistJobDataAfterExecutionTestJob
-A test job implementation class that extends the `com.quartzdesk.test.quartz.vX.TestJob` class and that is annotated with the [DisallowConcurrentExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/DisallowConcurrentExecution.html) and [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotations. This implementation class increments the value of the `execCount` job data map parameter in the job detail. Since this class is annotated with the [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotation, the updated `execCount` value is parsisted and passed to the job during its next execution.
+A test job implementation class that extends the `com.quartzdesk.test.quartz.vX.TestJob` class and that is annotated with the [DisallowConcurrentExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/DisallowConcurrentExecution.html) and [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotations. This implementation class increments the value of the `execCount` job data map parameter in the job detail. Since this class is annotated with the [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotation, the updated `execCount` value is persisted and passed to the job during its next execution.
 
 
 ## ![](media/job-impl-class-16x16.png) com.quartzdesk.test.quartz.vX.TestJobWithWorkerThreads  
 A test job implementation class that extends the `com.quartzdesk.test.quartz.vX.TestJob` class and that spawns multiple worker threads from the main job execution thread. This job implementation class is used for testing of interception of log messages produced by the spawned worker threads. 
+
+
+## ![](media/job-impl-class-16x16.png) com.quartzdesk.api.scheduler.quartz.vX.job.spring.SpringBeanInvokerJob
+A test job implementation class that invokes a configured Spring bean method. This job supports the following job data map parameters:
+
+`targetBeanName`: a name of the target Spring bean.
+
+`targetBeanClassName`: a fully-qualified class name of the target Spring bean. This parameter is required and used only if no `targetBeanName` is specified. 
+
+`targetBeanMethodName`: a name of the Spring bean method to invoke. The method must not have any parameters.
+
+Note: SpringBeanInvokerJob relies on an accessor bean that provides access to the current Spring application context and its beans. The accessor bean can have an arbitrary name and its class must be set to `com.quartzdesk.api.spring.ApplicationContextAccessor`. The accessor bean can be defined as follows:
+
+```
+<bean id="applicationContextAccessor"
+      class="com.quartzdesk.api.spring.ApplicationContextAccessor"/>
+```
+
+Both Spring bean bean implementation classes are part of the QuartzDesk Public API Library JAR.
 
 
 # Installation
