@@ -46,7 +46,7 @@
 
     <property name="autoStartup" value="true"/>
 
-    <property name="schedulerName" value="quartzdesk-test-quartz-v2-2-x-log4j"/>
+    <property name="schedulerName" value="quartzdesk-test-quartz-v2-3-x-log4j"/>
 
     <property name="quartzProperties">
       <util:properties>
@@ -57,7 +57,7 @@
           within the same program. If you are using the clustering features, you must use the same
           name for every instance in the cluster that is 'logically' the same Scheduler.
         -->
-        <!--<prop key="org.quartz.scheduler.instanceName">quartzdesk-test-quartz-v2-2-x-log4j</prop>-->
+        <!--<prop key="org.quartz.scheduler.instanceName">quartzdesk-test-quartz-v2-3-x-log4j</prop>-->
 
         <!--
           In non-clustered environments always set to NON_CLUSTERED.
@@ -75,7 +75,7 @@
         -->
         <prop key="org.quartz.scheduler.jmx.export">true</prop>
 
-        <prop key="org.quartz.scheduler.jmx.objectName">quartz:type=QuartzScheduler,name=quartzdesk-test-quartz-v2-2-x-log4j</prop>
+        <prop key="org.quartz.scheduler.jmx.objectName">quartz:type=QuartzScheduler,name=quartzdesk-test-quartz-v2-3-x-log4j</prop>
 
         <!--
           The scheduler thread will be marked as a daemon thread.
