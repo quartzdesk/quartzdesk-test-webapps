@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2013-2017 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>quartzdesk-test-quartz-v2-3-x</artifactId>
+  <packaging>pom</packaging>
+
+  <description>
+    Parent POM for all test web application build on top Quartz 2.3.x API.
+  </description>
+
+  <parent>
+    <groupId>com.quartzdesk-test-webapps</groupId>
+    <artifactId>quartzdesk-test-webapps-pom</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+  </parent>
+
+
+  <modules>
+    <module>quartzdesk-test-quartz-v2-3-0</module>
+
+    <module>quartzdesk-test-quartz-v2-3-x-jul</module>
+    <module>quartzdesk-test-quartz-v2-3-x-log4j</module>
+    <module>quartzdesk-test-quartz-v2-3-x-log4j2</module>
+    <module>quartzdesk-test-quartz-v2-3-x-logback</module>
+  </modules>
+
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>com.redhat.rcm.maven.plugin</groupId>
+        <artifactId>buildmetadata-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>provide-buildmetadata</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib</classpathPrefix>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2013-2017 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+  -->
+
+<web-app id="quartzdesk-test-quartz-v2-2-x-log4j"
+         version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <description>Quartz v2.x Test Application (Log4j)</description>
+  <display-name>quartzdesk-test-quartz-v2-2-x-log4j</display-name>
+
+  <!-- Start of Spring stuff -->
+
+  <context-param>
+    <description>The application context configuration used by Spring.</description>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>WEB-INF/spring/applicationContext.xml</param-value>
+  </context-param>
+
+  <!-- Spring context loader -->
+  <listener>
+    <description>
+      Spring context listener that loads up the application context configuration
+      specified in the contextConfigLocation context parameter.
+    </description>
+    <display-name>Spring Context Loader Listener</display-name>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <!-- End of Spring stuff -->
+
+  <!--
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	-->
+
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>QuartzDesk</realm-name>
+  </login-config>
+
+  <security-constraint>
+    <display-name>QuartzDesk Security Constraint</display-name>
+
+    <web-resource-collection>
+      <web-resource-name>QuartzDesk Protected Resources</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+
+    <auth-constraint>
+      <role-name>QuartzDeskUser</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-role>
+    <description>
+      The role that is required to access the QuartzDesk pages.
+    </description>
+    <role-name>QuartzDeskUser</role-name>
+  </security-role>
+
+
+  <jsp-config>
+
+    <!-- Start of JSTL Tag Library -->
+    <taglib>
+       <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+       <taglib-location>/WEB-INF/tld/jstl/c.tld</taglib-location>
+     </taglib>
+
+     <taglib>
+       <taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+       <taglib-location>/WEB-INF/tld/jstl/fmt.tld</taglib-location>
+     </taglib>
+
+     <taglib>
+       <taglib-uri>http://java.sun.com/jstl/fn</taglib-uri>
+       <taglib-location>/WEB-INF/tld/jstl/fn.tld</taglib-location>
+     </taglib>
+    <!-- End of JSTL Tag Library -->
+
+  </jsp-config>
+
+</web-app>

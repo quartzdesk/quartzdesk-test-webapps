@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2013-2017 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       	 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+  <context:property-placeholder system-properties-mode="OVERRIDE" />
+
+  <context:mbean-server/>
+
+  <import resource="applicationContext-jobs.xml"/>
+
+  <!--
+    Registry with custom Spring property editors to convert String values onto various non-primitive Java instances
+    (e.g. java.util.Date objects etc.)
+  -->
+  <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+    <property name="propertyEditorRegistrars">
+      <util:list>
+        <bean class="com.quartzdesk.test.common.spring.CustomEditorRegistrar"/>
+      </util:list>
+    </property>
+  </bean>
+
+
+  <!--
+    Used by the SpringBeanMethodInvokingJob job implementation class to look up the target Spring bean in the
+    application's context.
+  -->
+  <bean id="applicationContextAccessor"
+        class="com.quartzdesk.api.spring.ApplicationContextAccessor"/>
+
+
+  <!-- Quartz-based scheduler -->
+  <bean id="quartzScheduler"
+        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+
+    <property name="autoStartup" value="true"/>
+
+    <property name="schedulerName" value="quartzdesk-test-quartz-v2-2-x-jul"/>
+
+    <property name="quartzProperties">
+      <util:properties>
+
+        <!--
+          Can be any string, and the value has no meaning to the scheduler itself - but rather serves
+          as a mechanism for client code to distinguish schedulers when multiple instances are used
+          within the same program. If you are using the clustering features, you must use the same
+          name for every instance in the cluster that is 'logically' the same Scheduler.
+        -->
+        <!--<prop key="org.quartz.scheduler.instanceName">quartzdesk-test-quartz-v2-2-x-jul</prop>-->
+
+        <!--
+          In non-clustered environments always set to NON_CLUSTERED.
+        -->
+        <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
+
+        <!--
+          Unused in non-clustered environments (e.g. with RAMJobStore).
+        -->
+        <!-- <prop key="org.quartz.scheduler.instanceIdGenerator.class">org.quartz.simpl.HostnameInstanceIdGenerator</prop> -->
+
+        <!--
+          Must be set to true, otherwise the Quartz scheduler is not registered with the JMX server.
+          Defaults to false.
+        -->
+        <prop key="org.quartz.scheduler.jmx.export">true</prop>
+
+        <prop key="org.quartz.scheduler.jmx.objectName">quartz:type=QuartzScheduler,name=quartzdesk-test-quartz-v2-2-x-jul</prop>
+
+        <!--
+          The scheduler thread will be marked as a daemon thread.
+        -->
+        <prop key="org.quartz.scheduler.makeSchedulerThreadDaemon">true</prop>
+        <!--
+          The scheduler thread pool threads will be marked as daemon threads.
+        -->
+        <prop key="org.quartz.threadPool.makeThreadsDaemons">true</prop>
+      </util:properties>
+    </property>
+
+    <property name="jobFactory">
+      <bean class="org.springframework.scheduling.quartz.SpringBeanJobFactory"/>
+    </property>
+
+    <property name="jobDetails">
+      <list>
+        <ref bean="job1"/>
+        <ref bean="job2"/>
+        <ref bean="job3"/>
+        <ref bean="job4"/>
+        <ref bean="job5"/>
+        <ref bean="job6"/>
+        <ref bean="job7"/>
+        <ref bean="job8"/>
+        <ref bean="job9"/>
+        <ref bean="job10"/>
+        <ref bean="job11"/>
+        <ref bean="job12"/>
+        <ref bean="job13"/>
+        <ref bean="job14"/>
+        <ref bean="job15"/>
+
+        <ref bean="jobWithManyTriggers"/>
+
+        <ref bean="manyJobsJob00"/>
+        <ref bean="manyJobsJob01"/>
+        <ref bean="manyJobsJob02"/>
+        <ref bean="manyJobsJob03"/>
+        <ref bean="manyJobsJob04"/>
+        <ref bean="manyJobsJob05"/>
+        <ref bean="manyJobsJob06"/>
+        <ref bean="manyJobsJob07"/>
+        <ref bean="manyJobsJob08"/>
+        <ref bean="manyJobsJob09"/>
+
+        <ref bean="manyJobsJob10"/>
+        <ref bean="manyJobsJob11"/>
+        <ref bean="manyJobsJob12"/>
+        <ref bean="manyJobsJob13"/>
+        <ref bean="manyJobsJob14"/>
+        <ref bean="manyJobsJob15"/>
+        <ref bean="manyJobsJob16"/>
+        <ref bean="manyJobsJob17"/>
+        <ref bean="manyJobsJob18"/>
+        <ref bean="manyJobsJob19"/>
+
+        <ref bean="manyJobsJob20"/>
+        <ref bean="manyJobsJob21"/>
+        <ref bean="manyJobsJob22"/>
+        <ref bean="manyJobsJob23"/>
+        <ref bean="manyJobsJob24"/>
+        <ref bean="manyJobsJob25"/>
+        <ref bean="manyJobsJob26"/>
+        <ref bean="manyJobsJob27"/>
+        <ref bean="manyJobsJob28"/>
+        <ref bean="manyJobsJob29"/>
+
+        <ref bean="manyJobsJob30"/>
+        <ref bean="manyJobsJob31"/>
+        <ref bean="manyJobsJob32"/>
+        <ref bean="manyJobsJob33"/>
+        <ref bean="manyJobsJob34"/>
+        <ref bean="manyJobsJob35"/>
+        <ref bean="manyJobsJob36"/>
+        <ref bean="manyJobsJob37"/>
+        <ref bean="manyJobsJob38"/>
+        <ref bean="manyJobsJob39"/>
+
+        <ref bean="manyJobsJob40"/>
+        <ref bean="manyJobsJob41"/>
+        <ref bean="manyJobsJob42"/>
+        <ref bean="manyJobsJob43"/>
+        <ref bean="manyJobsJob44"/>
+        <ref bean="manyJobsJob45"/>
+        <ref bean="manyJobsJob46"/>
+        <ref bean="manyJobsJob47"/>
+        <ref bean="manyJobsJob48"/>
+        <ref bean="manyJobsJob49"/>
+
+        <ref bean="manyJobsJob50"/>
+        <ref bean="manyJobsJob51"/>
+        <ref bean="manyJobsJob52"/>
+        <ref bean="manyJobsJob53"/>
+        <ref bean="manyJobsJob54"/>
+        <ref bean="manyJobsJob55"/>
+        <ref bean="manyJobsJob56"/>
+        <ref bean="manyJobsJob57"/>
+        <ref bean="manyJobsJob58"/>
+        <ref bean="manyJobsJob59"/>
+
+        <ref bean="manyJobsJob60"/>
+        <ref bean="manyJobsJob61"/>
+        <ref bean="manyJobsJob62"/>
+        <ref bean="manyJobsJob63"/>
+        <ref bean="manyJobsJob64"/>
+        <ref bean="manyJobsJob65"/>
+        <ref bean="manyJobsJob66"/>
+        <ref bean="manyJobsJob67"/>
+        <ref bean="manyJobsJob68"/>
+        <ref bean="manyJobsJob69"/>
+
+        <ref bean="manyJobsJob70"/>
+        <ref bean="manyJobsJob71"/>
+        <ref bean="manyJobsJob72"/>
+        <ref bean="manyJobsJob73"/>
+        <ref bean="manyJobsJob74"/>
+        <ref bean="manyJobsJob75"/>
+        <ref bean="manyJobsJob76"/>
+        <ref bean="manyJobsJob77"/>
+        <ref bean="manyJobsJob78"/>
+        <ref bean="manyJobsJob79"/>
+
+        <ref bean="manyJobsJob80"/>
+        <ref bean="manyJobsJob81"/>
+        <ref bean="manyJobsJob82"/>
+        <ref bean="manyJobsJob83"/>
+        <ref bean="manyJobsJob84"/>
+        <ref bean="manyJobsJob85"/>
+        <ref bean="manyJobsJob86"/>
+        <ref bean="manyJobsJob87"/>
+        <ref bean="manyJobsJob88"/>
+        <ref bean="manyJobsJob89"/>
+
+        <ref bean="manyJobsJob90"/>
+        <ref bean="manyJobsJob91"/>
+        <ref bean="manyJobsJob92"/>
+        <ref bean="manyJobsJob93"/>
+        <ref bean="manyJobsJob94"/>
+        <ref bean="manyJobsJob95"/>
+        <ref bean="manyJobsJob96"/>
+        <ref bean="manyJobsJob97"/>
+        <ref bean="manyJobsJob98"/>
+        <ref bean="manyJobsJob99"/>
+
+        <ref bean="interruptibleJob"/>
+
+        <ref bean="disallowConcurrentExecutionTestJob"/>
+        <ref bean="persistJobDataAfterExecutionJob"/>
+
+        <ref bean="testJobWithWorkerThreads"/>
+      </list>
+    </property>
+
+    <property name="triggers">
+      <list>
+        <ref bean="job1Trigger"/>
+        <ref bean="job2Trigger"/>
+
+        <ref bean="job3CronTrigger"/>
+        <ref bean="job3SimpleTrigger"/>
+        <ref bean="job3SimpleTrigger2"/>
+        <ref bean="job3CalendarIntervalTrigger"/>
+        <ref bean="job3DailyTimeIntervalTrigger"/>
+
+        <ref bean="job4Trigger"/>
+        <ref bean="job5Trigger"/>
+        <ref bean="job6Trigger"/>
+        <ref bean="job7Trigger"/>
+        <ref bean="job8Trigger"/>
+        <ref bean="job9Trigger"/>
+        <ref bean="job10Trigger"/>
+        <ref bean="job11Trigger"/>
+        <ref bean="job12Trigger"/>
+        <ref bean="job13Trigger"/>
+        <ref bean="job14Trigger"/>
+        <ref bean="job15Trigger"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger00"/>
+        <ref bean="jobWithManyTriggersCronTrigger01"/>
+        <ref bean="jobWithManyTriggersCronTrigger02"/>
+        <ref bean="jobWithManyTriggersCronTrigger03"/>
+        <ref bean="jobWithManyTriggersCronTrigger04"/>
+        <ref bean="jobWithManyTriggersCronTrigger05"/>
+        <ref bean="jobWithManyTriggersCronTrigger06"/>
+        <ref bean="jobWithManyTriggersCronTrigger07"/>
+        <ref bean="jobWithManyTriggersCronTrigger08"/>
+        <ref bean="jobWithManyTriggersCronTrigger09"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger10"/>
+        <ref bean="jobWithManyTriggersCronTrigger11"/>
+        <ref bean="jobWithManyTriggersCronTrigger12"/>
+        <ref bean="jobWithManyTriggersCronTrigger13"/>
+        <ref bean="jobWithManyTriggersCronTrigger14"/>
+        <ref bean="jobWithManyTriggersCronTrigger15"/>
+        <ref bean="jobWithManyTriggersCronTrigger16"/>
+        <ref bean="jobWithManyTriggersCronTrigger17"/>
+        <ref bean="jobWithManyTriggersCronTrigger18"/>
+        <ref bean="jobWithManyTriggersCronTrigger19"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger20"/>
+        <ref bean="jobWithManyTriggersCronTrigger21"/>
+        <ref bean="jobWithManyTriggersCronTrigger22"/>
+        <ref bean="jobWithManyTriggersCronTrigger23"/>
+        <ref bean="jobWithManyTriggersCronTrigger24"/>
+        <ref bean="jobWithManyTriggersCronTrigger25"/>
+        <ref bean="jobWithManyTriggersCronTrigger26"/>
+        <ref bean="jobWithManyTriggersCronTrigger27"/>
+        <ref bean="jobWithManyTriggersCronTrigger28"/>
+        <ref bean="jobWithManyTriggersCronTrigger29"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger30"/>
+        <ref bean="jobWithManyTriggersCronTrigger31"/>
+        <ref bean="jobWithManyTriggersCronTrigger32"/>
+        <ref bean="jobWithManyTriggersCronTrigger33"/>
+        <ref bean="jobWithManyTriggersCronTrigger34"/>
+        <ref bean="jobWithManyTriggersCronTrigger35"/>
+        <ref bean="jobWithManyTriggersCronTrigger36"/>
+        <ref bean="jobWithManyTriggersCronTrigger37"/>
+        <ref bean="jobWithManyTriggersCronTrigger38"/>
+        <ref bean="jobWithManyTriggersCronTrigger39"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger40"/>
+        <ref bean="jobWithManyTriggersCronTrigger41"/>
+        <ref bean="jobWithManyTriggersCronTrigger42"/>
+        <ref bean="jobWithManyTriggersCronTrigger43"/>
+        <ref bean="jobWithManyTriggersCronTrigger44"/>
+        <ref bean="jobWithManyTriggersCronTrigger45"/>
+        <ref bean="jobWithManyTriggersCronTrigger46"/>
+        <ref bean="jobWithManyTriggersCronTrigger47"/>
+        <ref bean="jobWithManyTriggersCronTrigger48"/>
+        <ref bean="jobWithManyTriggersCronTrigger49"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger50"/>
+        <ref bean="jobWithManyTriggersCronTrigger51"/>
+        <ref bean="jobWithManyTriggersCronTrigger52"/>
+        <ref bean="jobWithManyTriggersCronTrigger53"/>
+        <ref bean="jobWithManyTriggersCronTrigger54"/>
+        <ref bean="jobWithManyTriggersCronTrigger55"/>
+        <ref bean="jobWithManyTriggersCronTrigger56"/>
+        <ref bean="jobWithManyTriggersCronTrigger57"/>
+        <ref bean="jobWithManyTriggersCronTrigger58"/>
+        <ref bean="jobWithManyTriggersCronTrigger59"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger60"/>
+        <ref bean="jobWithManyTriggersCronTrigger61"/>
+        <ref bean="jobWithManyTriggersCronTrigger62"/>
+        <ref bean="jobWithManyTriggersCronTrigger63"/>
+        <ref bean="jobWithManyTriggersCronTrigger64"/>
+        <ref bean="jobWithManyTriggersCronTrigger65"/>
+        <ref bean="jobWithManyTriggersCronTrigger66"/>
+        <ref bean="jobWithManyTriggersCronTrigger67"/>
+        <ref bean="jobWithManyTriggersCronTrigger68"/>
+        <ref bean="jobWithManyTriggersCronTrigger69"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger70"/>
+        <ref bean="jobWithManyTriggersCronTrigger71"/>
+        <ref bean="jobWithManyTriggersCronTrigger72"/>
+        <ref bean="jobWithManyTriggersCronTrigger73"/>
+        <ref bean="jobWithManyTriggersCronTrigger74"/>
+        <ref bean="jobWithManyTriggersCronTrigger75"/>
+        <ref bean="jobWithManyTriggersCronTrigger76"/>
+        <ref bean="jobWithManyTriggersCronTrigger77"/>
+        <ref bean="jobWithManyTriggersCronTrigger78"/>
+        <ref bean="jobWithManyTriggersCronTrigger79"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger80"/>
+        <ref bean="jobWithManyTriggersCronTrigger81"/>
+        <ref bean="jobWithManyTriggersCronTrigger82"/>
+        <ref bean="jobWithManyTriggersCronTrigger83"/>
+        <ref bean="jobWithManyTriggersCronTrigger84"/>
+        <ref bean="jobWithManyTriggersCronTrigger85"/>
+        <ref bean="jobWithManyTriggersCronTrigger86"/>
+        <ref bean="jobWithManyTriggersCronTrigger87"/>
+        <ref bean="jobWithManyTriggersCronTrigger88"/>
+        <ref bean="jobWithManyTriggersCronTrigger89"/>
+
+        <ref bean="jobWithManyTriggersCronTrigger90"/>
+        <ref bean="jobWithManyTriggersCronTrigger91"/>
+        <ref bean="jobWithManyTriggersCronTrigger92"/>
+        <ref bean="jobWithManyTriggersCronTrigger93"/>
+        <ref bean="jobWithManyTriggersCronTrigger94"/>
+        <ref bean="jobWithManyTriggersCronTrigger95"/>
+        <ref bean="jobWithManyTriggersCronTrigger96"/>
+        <ref bean="jobWithManyTriggersCronTrigger97"/>
+        <ref bean="jobWithManyTriggersCronTrigger98"/>
+        <ref bean="jobWithManyTriggersCronTrigger99"/>
+
+        <ref bean="manyJobsJob00CronTrigger"/>
+        <ref bean="manyJobsJob01CronTrigger"/>
+        <ref bean="manyJobsJob02CronTrigger"/>
+        <ref bean="manyJobsJob03CronTrigger"/>
+        <ref bean="manyJobsJob04CronTrigger"/>
+        <ref bean="manyJobsJob05CronTrigger"/>
+        <ref bean="manyJobsJob06CronTrigger"/>
+        <ref bean="manyJobsJob07CronTrigger"/>
+        <ref bean="manyJobsJob08CronTrigger"/>
+        <ref bean="manyJobsJob09CronTrigger"/>
+
+        <ref bean="manyJobsJob10CronTrigger"/>
+        <ref bean="manyJobsJob11CronTrigger"/>
+        <ref bean="manyJobsJob12CronTrigger"/>
+        <ref bean="manyJobsJob13CronTrigger"/>
+        <ref bean="manyJobsJob14CronTrigger"/>
+        <ref bean="manyJobsJob15CronTrigger"/>
+        <ref bean="manyJobsJob16CronTrigger"/>
+        <ref bean="manyJobsJob17CronTrigger"/>
+        <ref bean="manyJobsJob18CronTrigger"/>
+        <ref bean="manyJobsJob19CronTrigger"/>
+
+        <ref bean="manyJobsJob20CronTrigger"/>
+        <ref bean="manyJobsJob21CronTrigger"/>
+        <ref bean="manyJobsJob22CronTrigger"/>
+        <ref bean="manyJobsJob23CronTrigger"/>
+        <ref bean="manyJobsJob24CronTrigger"/>
+        <ref bean="manyJobsJob25CronTrigger"/>
+        <ref bean="manyJobsJob26CronTrigger"/>
+        <ref bean="manyJobsJob27CronTrigger"/>
+        <ref bean="manyJobsJob28CronTrigger"/>
+        <ref bean="manyJobsJob29CronTrigger"/>
+
+        <ref bean="manyJobsJob30CronTrigger"/>
+        <ref bean="manyJobsJob31CronTrigger"/>
+        <ref bean="manyJobsJob32CronTrigger"/>
+        <ref bean="manyJobsJob33CronTrigger"/>
+        <ref bean="manyJobsJob34CronTrigger"/>
+        <ref bean="manyJobsJob35CronTrigger"/>
+        <ref bean="manyJobsJob36CronTrigger"/>
+        <ref bean="manyJobsJob37CronTrigger"/>
+        <ref bean="manyJobsJob38CronTrigger"/>
+        <ref bean="manyJobsJob39CronTrigger"/>
+
+        <ref bean="manyJobsJob40CronTrigger"/>
+        <ref bean="manyJobsJob41CronTrigger"/>
+        <ref bean="manyJobsJob42CronTrigger"/>
+        <ref bean="manyJobsJob43CronTrigger"/>
+        <ref bean="manyJobsJob44CronTrigger"/>
+        <ref bean="manyJobsJob45CronTrigger"/>
+        <ref bean="manyJobsJob46CronTrigger"/>
+        <ref bean="manyJobsJob47CronTrigger"/>
+        <ref bean="manyJobsJob48CronTrigger"/>
+        <ref bean="manyJobsJob49CronTrigger"/>
+
+        <ref bean="manyJobsJob50CronTrigger"/>
+        <ref bean="manyJobsJob51CronTrigger"/>
+        <ref bean="manyJobsJob52CronTrigger"/>
+        <ref bean="manyJobsJob53CronTrigger"/>
+        <ref bean="manyJobsJob54CronTrigger"/>
+        <ref bean="manyJobsJob55CronTrigger"/>
+        <ref bean="manyJobsJob56CronTrigger"/>
+        <ref bean="manyJobsJob57CronTrigger"/>
+        <ref bean="manyJobsJob58CronTrigger"/>
+        <ref bean="manyJobsJob59CronTrigger"/>
+
+        <ref bean="manyJobsJob60CronTrigger"/>
+        <ref bean="manyJobsJob61CronTrigger"/>
+        <ref bean="manyJobsJob62CronTrigger"/>
+        <ref bean="manyJobsJob63CronTrigger"/>
+        <ref bean="manyJobsJob64CronTrigger"/>
+        <ref bean="manyJobsJob65CronTrigger"/>
+        <ref bean="manyJobsJob66CronTrigger"/>
+        <ref bean="manyJobsJob67CronTrigger"/>
+        <ref bean="manyJobsJob68CronTrigger"/>
+        <ref bean="manyJobsJob69CronTrigger"/>
+
+        <ref bean="manyJobsJob70CronTrigger"/>
+        <ref bean="manyJobsJob71CronTrigger"/>
+        <ref bean="manyJobsJob72CronTrigger"/>
+        <ref bean="manyJobsJob73CronTrigger"/>
+        <ref bean="manyJobsJob74CronTrigger"/>
+        <ref bean="manyJobsJob75CronTrigger"/>
+        <ref bean="manyJobsJob76CronTrigger"/>
+        <ref bean="manyJobsJob77CronTrigger"/>
+        <ref bean="manyJobsJob78CronTrigger"/>
+        <ref bean="manyJobsJob79CronTrigger"/>
+
+        <ref bean="manyJobsJob80CronTrigger"/>
+        <ref bean="manyJobsJob81CronTrigger"/>
+        <ref bean="manyJobsJob82CronTrigger"/>
+        <ref bean="manyJobsJob83CronTrigger"/>
+        <ref bean="manyJobsJob84CronTrigger"/>
+        <ref bean="manyJobsJob85CronTrigger"/>
+        <ref bean="manyJobsJob86CronTrigger"/>
+        <ref bean="manyJobsJob87CronTrigger"/>
+        <ref bean="manyJobsJob88CronTrigger"/>
+        <ref bean="manyJobsJob89CronTrigger"/>
+
+        <ref bean="manyJobsJob90CronTrigger"/>
+        <ref bean="manyJobsJob91CronTrigger"/>
+        <ref bean="manyJobsJob92CronTrigger"/>
+        <ref bean="manyJobsJob93CronTrigger"/>
+        <ref bean="manyJobsJob94CronTrigger"/>
+        <ref bean="manyJobsJob95CronTrigger"/>
+        <ref bean="manyJobsJob96CronTrigger"/>
+        <ref bean="manyJobsJob97CronTrigger"/>
+        <ref bean="manyJobsJob98CronTrigger"/>
+        <ref bean="manyJobsJob99CronTrigger"/>
+
+        <ref bean="interruptibleJobCronTrigger"/>
+
+        <ref bean="disallowConcurrentExecutionJobCronTrigger"/>
+        <ref bean="persistJobDataAfterExecutionJobCronTrigger"/>
+
+        <ref bean="testJobWithWorkerThreadsCronTrigger"/>
+      </list>
+    </property>
+
+    <property name="globalTriggerListeners">
+      <list value-type="org.quartz.TriggerListener">
+        <bean class="com.quartzdesk.test.quartz.v2.TestTriggerListener"/>
+      </list>
+    </property>
+
+    <property name="calendars">
+      <map key-type="java.lang.String" value-type="org.quartz.Calendar">
+
+        <entry key="dailyCalendar">
+          <bean class="org.quartz.impl.calendar.DailyCalendar">
+            <constructor-arg name="rangeStartingTime" value="00:00:00:000"/>
+            <constructor-arg name="rangeEndingTime" value="00:00:00:001"/>
+          </bean>
+        </entry>
+
+        <entry key="weeklyCalendar">
+          <bean class="org.quartz.impl.calendar.WeeklyCalendar">
+            <property name="daysExcluded">
+              <list value-type="java.lang.Boolean">
+                <!-- 0 - dummy value -->
+                <value>false</value>
+                <!-- SUNDAY -->
+                <value>false</value>
+                <!-- MONDAY -->
+                <value>false</value>
+                <!-- TUESDAY -->
+                <value>false</value>
+                <!-- WEDNESDAY -->
+                <value>false</value>
+                <!-- THURSDAY -->
+                <value>false</value>
+                <!-- FRIDAY -->
+                <value>false</value>
+                <!-- SATURDAY -->
+                <value>false</value>
+              </list>
+            </property>
+          </bean>
+        </entry>
+
+        <entry key="monthlyCalendar">
+          <bean class="org.quartz.impl.calendar.MonthlyCalendar">
+            <!-- X, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ... 31 -->
+            <property name="daysExcluded">
+              <list value-type="java.lang.Boolean">
+                <!-- 0 - dummy day -->
+                <value>false</value>
+                <!-- 1..10 -->
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+
+                <!-- 11..20 -->
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+
+                <!-- 21..30 -->
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+                <value>false</value>
+
+                <!-- 31 -->
+                <value>false</value>
+              </list>
+            </property>
+          </bean>
+        </entry>
+
+        <entry key="annualCalendar">
+          <bean class="org.quartz.impl.calendar.AnnualCalendar">
+            <!-- list of java.util.Calendar instances -->
+            <property name="daysExcluded">
+              <null/>
+            </property>
+          </bean>
+        </entry>
+
+        <entry key="holidayCalendar">
+          <bean class="org.quartz.impl.calendar.HolidayCalendar">
+          </bean>
+        </entry>
+
+        <entry key="cronCalendar">
+          <bean class="org.quartz.impl.calendar.CronCalendar">
+            <constructor-arg name="expression" value="0 0 0 * * ? 2100"/>
+          </bean>
+        </entry>
+      </map>
+    </property>
+
+    <!--
+      Name of the property in the scheduler context the Spring application context
+      will be exposed through.
+    -->
+    <property name="applicationContextSchedulerContextKey" value="applicationContext"/>
+  </bean>
+</beans>
