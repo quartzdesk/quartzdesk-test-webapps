@@ -49,6 +49,7 @@
     <module>quartzdesk-test-quartz-v2-0-x</module>
     <module>quartzdesk-test-quartz-v2-1-x</module>
     <module>quartzdesk-test-quartz-v2-2-x</module>
+    <module>quartzdesk-test-quartz-v2-3-x</module>
   </modules>
 
 
