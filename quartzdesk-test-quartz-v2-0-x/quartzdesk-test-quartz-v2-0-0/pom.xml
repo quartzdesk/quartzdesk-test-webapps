@@ -21,6 +21,19 @@
   </parent>
 
   <properties>
+    <!--
+      SpringBeanFactory in Spring releases >= 4.1 do not seem to be compatible with Quartz 2.0.x API because the
+      factory throws the following error during its initialization:
+
+      java.lang.NoSuchMethodError: org.quartz.SchedulerContext.put(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+        at org.springframework.scheduling.quartz.SchedulerFactoryBean.populateSchedulerContext(SchedulerFactoryBean.java:634) ~[spring-context-support-4.1.8.RELEASE.jar:4.1.8.RELEASE]
+        at org.springframework.scheduling.quartz.SchedulerFactoryBean.afterPropertiesSet(SchedulerFactoryBean.java:481) ~[spring-context-support-4.1.8.RELEASE.jar:4.1.8.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1631) ~[spring-beans-4.1.8.RELEASE.jar:4.1.8.RELEASE]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1568) ~[spring-beans-4.1.8.RELEASE.jar:4.1.8.RELEASE]
+        ... 57 common frames omitted
+    -->
+    <org.springframework.version>4.0.9.RELEASE</org.springframework.version>
+
     <org.quartz-scheduler.quartz.version>2.0.0</org.quartz-scheduler.quartz.version>
   </properties>
 
