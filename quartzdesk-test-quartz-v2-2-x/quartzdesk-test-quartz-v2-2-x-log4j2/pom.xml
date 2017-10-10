@@ -57,6 +57,15 @@
 
     <!-- 3rd party dependencies -->
 
+    <!--
+      Runtime dependency required by asynchronous LOG4J2 loggers.
+    -->
+    <dependency>
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>

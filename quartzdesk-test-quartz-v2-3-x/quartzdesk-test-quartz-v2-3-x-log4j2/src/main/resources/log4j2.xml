@@ -57,7 +57,8 @@
 
     <logger name="com.quartzdesk"
             level="trace"
-            additivity="false">
+            additivity="false"
+            includeLocation="true">
       <appender-ref ref="FILE"/>
       <appender-ref ref="TRACE_FILE"/>
       <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
@@ -68,7 +69,8 @@
     -->
     <logger name="org.springframework.beans.factory.xml"
             level="info"
-            additivity="false">
+            additivity="false"
+            includeLocation="true">
       <appender-ref ref="FILE"/>
       <appender-ref ref="TRACE_FILE"/>
       <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
@@ -79,7 +81,8 @@
     -->
     <logger name="org.springframework.core.io.support.PropertiesLoaderSupport"
             level="info"
-            additivity="false">
+            additivity="false"
+            includeLocation="true">
       <appender-ref ref="FILE"/>
       <appender-ref ref="TRACE_FILE"/>
       <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
@@ -90,14 +93,16 @@
     -->
     <logger name="org.springframework.web"
             level="trace"
-            additivity="false">
+            additivity="false"
+            includeLocation="true">
       <appender-ref ref="FILE"/>
       <appender-ref ref="TRACE_FILE"/>
       <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
     </logger>
 
 
-    <root level="warn">
+    <root level="warn"
+          includeLocation="true">
       <appender-ref ref="FILE"/>
       <appender-ref ref="TRACE_FILE"/>
       <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
