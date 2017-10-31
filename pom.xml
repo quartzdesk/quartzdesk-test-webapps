@@ -10,7 +10,7 @@
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.1.0-SNAPSHOT</version>
+  <version>3.1.0</version>
 
   <parent>
     <groupId>com.quartzdesk-parent-pom</groupId>
@@ -19,7 +19,7 @@
   </parent>
 
   <properties>
-		<com.quartzdesk.version>3.1.0-SNAPSHOT</com.quartzdesk.version>
+		<com.quartzdesk.version>3.1.0</com.quartzdesk.version>
 
     <org.slf4j.version>1.7.25</org.slf4j.version>
     <org.springframework.version>4.3.0.RELEASE</org.springframework.version>
@@ -370,7 +370,7 @@
 
         <plugin>
           <artifactId>maven-antrun-plugin</artifactId>
-          <version>1.7</version>
+          <version>1.8</version>
         </plugin>
 
 
@@ -378,8 +378,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.1</version>
           <configuration>
-            <source>1.6</source>
-            <target>1.6</target>
+            <source>1.7</source>
+            <target>1.7</target>
             <encoding>UTF-8</encoding>
           </configuration>
         </plugin>
@@ -387,13 +387,13 @@
 
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.1</version>
+          <version>2.8.2</version>
         </plugin>
 
 
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>2.5</version>
+          <version>3.0.2</version>
           <configuration>
             <archive>
               <!--
@@ -426,35 +426,35 @@
 
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.8.1</version>
+          <version>3.0.0-M1</version>
         </plugin>
 
 
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.5</version>
+          <version>2.5.3</version>
         </plugin>
 
         <plugin>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>2.3</version>
+          <version>3.1.0</version>
         </plugin>
 
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
-          <version>2.3</version>
+          <version>3.0.1</version>
         </plugin>
 
 
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>2.6</version>
+          <version>3.0.2</version>
         </plugin>
 
 
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
-          <version>2.4</version>
+          <version>3.2.0</version>
           <configuration>
             <archive>
               <!--
