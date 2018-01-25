@@ -151,5 +151,12 @@
       </action>
     </release>
 
+
+    <release version="3.2.0" date="2018-01-26">
+      <action type="update">
+        Upgraded to QuartzDesk API 3.2.0.
+      </action>
+    </release>
+
   </body>
 </document>
