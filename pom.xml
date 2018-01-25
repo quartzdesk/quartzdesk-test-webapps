@@ -37,8 +37,8 @@
   </organization>
 
   <scm>
-    <developerConnection>scm:svn:svn://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps/branches/quartzdesk-test-webapps-pom-2.3.0</developerConnection>
-    <connection>scm:svn:svn://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps/branches/quartzdesk-test-webapps-pom-2.3.0</connection>
+    <developerConnection>scm:svn:svn://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps/trunk</developerConnection>
+    <connection>scm:svn:svn://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps/trunk</connection>
     <url>https://github.com/quartzdesk/quartzdesk-test-webapps</url>
   </scm>
 
