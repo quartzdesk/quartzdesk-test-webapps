@@ -19,7 +19,7 @@
   </parent>
 
   <properties>
-		<com.quartzdesk.version>3.3.0-SNAPSHOT</com.quartzdesk.version>
+    <com.quartzdesk.version>3.3.0</com.quartzdesk.version>
 
     <org.slf4j.version>1.7.25</org.slf4j.version>
     <org.springframework.version>4.3.0.RELEASE</org.springframework.version>
@@ -68,10 +68,10 @@
       </dependency>
 
       <dependency>
-	      <groupId>com.quartzdesk</groupId>
-	      <artifactId>quartzdesk-api</artifactId>
-	      <version>${com.quartzdesk.version}</version>
-	    </dependency>
+        <groupId>com.quartzdesk</groupId>
+        <artifactId>quartzdesk-api</artifactId>
+        <version>${com.quartzdesk.version}</version>
+      </dependency>
 
       <!-- 3rd party dependencies -->
 
@@ -97,9 +97,9 @@
       </dependency>
 
       <dependency>
-      	<groupId>javax.management</groupId>
-      	<artifactId>jmxremote_optional</artifactId>
-      	<version>1.0.1_04</version>
+        <groupId>javax.management</groupId>
+        <artifactId>jmxremote_optional</artifactId>
+        <version>1.0.1_04</version>
       </dependency>
 
       <dependency>
@@ -133,9 +133,9 @@
       </dependency>
 
       <dependency>
-      	<groupId>log4j</groupId>
-      	<artifactId>apache-log4j-extras</artifactId>
-      	<version>1.1</version>
+        <groupId>log4j</groupId>
+        <artifactId>apache-log4j-extras</artifactId>
+        <version>1.1</version>
       </dependency>
 
       <dependency>
@@ -157,9 +157,9 @@
       </dependency>
 
       <dependency>
-      	<groupId>org.jvnet.jaxb2_commons</groupId>
-      	<artifactId>jaxb2-basics-runtime</artifactId>
-      	<version>0.6.4</version>
+        <groupId>org.jvnet.jaxb2_commons</groupId>
+        <artifactId>jaxb2-basics-runtime</artifactId>
+        <version>0.6.4</version>
       </dependency>
 
       <dependency>
