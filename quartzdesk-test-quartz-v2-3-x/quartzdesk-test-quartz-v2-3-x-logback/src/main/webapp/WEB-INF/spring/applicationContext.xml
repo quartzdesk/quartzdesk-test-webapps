@@ -495,8 +495,8 @@
 
         <entry key="dailyCalendar">
           <bean class="org.quartz.impl.calendar.DailyCalendar">
-            <constructor-arg name="rangeStartingTime" value="00:00:00:000"/>
-            <constructor-arg name="rangeEndingTime" value="00:00:00:001"/>
+            <constructor-arg name="rangeStartingTime" value="10:00:00:000"/>
+            <constructor-arg name="rangeEndingTime" value="14:00:00:000"/>
           </bean>
         </entry>
 
@@ -513,7 +513,7 @@
                 <!-- TUESDAY -->
                 <value>false</value>
                 <!-- WEDNESDAY -->
-                <value>false</value>
+                <value>true</value>
                 <!-- THURSDAY -->
                 <value>false</value>
                 <!-- FRIDAY -->
@@ -534,7 +534,7 @@
                 <value>false</value>
                 <!-- 1..10 -->
                 <value>false</value>
-                <value>false</value>
+                <value>true</value>
                 <value>false</value>
                 <value>false</value>
                 <value>false</value>
