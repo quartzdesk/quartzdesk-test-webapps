@@ -10,7 +10,7 @@
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.4.2-SNAPSHOT</version>
+  <version>3.4.3-SNAPSHOT</version>
 
   <parent>
     <groupId>com.quartzdesk-parent-pom</groupId>
