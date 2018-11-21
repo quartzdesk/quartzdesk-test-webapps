@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2017 QuartzDesk.com.
+  ~ Copyright (c) 2013-2018 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -10,7 +10,7 @@
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.4.3-SNAPSHOT</version>
+  <version>3.5.0</version>
 
   <parent>
     <groupId>com.quartzdesk-parent-pom</groupId>
@@ -19,10 +19,10 @@
   </parent>
 
   <properties>
-    <com.quartzdesk.version>3.4.1-SNAPSHOT</com.quartzdesk.version>
+    <com.quartzdesk.version>3.5.0</com.quartzdesk.version>
 
     <org.slf4j.version>1.7.25</org.slf4j.version>
-    <org.springframework.version>4.3.0.RELEASE</org.springframework.version>
+    <org.springframework.version>4.3.19.RELEASE</org.springframework.version>
   </properties>
 
   <name>QuartzDesk Test Web Applications</name>
