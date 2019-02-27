@@ -10,7 +10,7 @@
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>3.5.0</version>
+  <version>3.6.0</version>
 
   <parent>
     <groupId>com.quartzdesk-parent-pom</groupId>
@@ -19,7 +19,7 @@
   </parent>
 
   <properties>
-    <com.quartzdesk.version>3.5.0</com.quartzdesk.version>
+    <com.quartzdesk.version>3.6.0</com.quartzdesk.version>
 
     <org.slf4j.version>1.7.25</org.slf4j.version>
     <org.springframework.version>4.3.19.RELEASE</org.springframework.version>
@@ -495,7 +495,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>jslint-maven-plugin</artifactId>
-          <version>1.0.1-SNAPSHOT</version>
+          <version>1.0.1</version>
         </plugin>
 
 
