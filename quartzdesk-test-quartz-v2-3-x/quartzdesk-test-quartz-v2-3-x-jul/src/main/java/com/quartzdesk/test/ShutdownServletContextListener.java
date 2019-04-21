@@ -1,6 +1,5 @@
 package com.quartzdesk.test;
 
-import org.apache.log4j.LogManager;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.slf4j.Logger;
@@ -34,9 +33,6 @@ public class ShutdownServletContextListener
     {
       log.error( "Error shutting down Quartz scheduler: " + scheduler, e );
     }
-
-    // shutdown Log4j
-    LogManager.shutdown();
   }
 
 

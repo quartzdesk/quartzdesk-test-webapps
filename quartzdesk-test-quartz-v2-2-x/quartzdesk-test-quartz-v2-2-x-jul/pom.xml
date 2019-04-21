@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2018 QuartzDesk.com.
+  ~ Copyright (c) 2013-2019 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -17,7 +17,7 @@
   <parent>
     <groupId>com.quartzdesk-test-webapps</groupId>
     <artifactId>quartzdesk-test-quartz-v2-2-x</artifactId>
-    <version>3.6.0</version>
+    <version>3.7.0-SNAPSHOT</version>
   </parent>
 
   <properties>
@@ -36,7 +36,7 @@
     <!-- QuartzDesk dependencies -->
 
     <!--
-      Included so that we can debug the QuartzDesk JVM agent with test webapps.
+      Included so that we can debug QuartzDesk JVM Agent with test webapps.
     -->
     <dependency>
       <groupId>com.quartzdesk</groupId>
@@ -153,7 +153,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <scope>runtime</scope>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>

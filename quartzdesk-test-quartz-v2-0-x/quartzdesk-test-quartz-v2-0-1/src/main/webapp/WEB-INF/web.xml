@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2013-2017 QuartzDesk.com.
+  ~ Copyright (c) 2013-2019 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -31,6 +31,14 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   <!-- End of Spring stuff -->
+
+  <listener>
+    <description>
+      Servlet context listener that stops the Quartz scheduler and waits for all currently executing jobs to finish.
+    </description>
+    <display-name>Shutdown Servlet Context Listener</display-name>
+    <listener-class>com.quartzdesk.test.ShutdownServletContextListener</listener-class>
+  </listener>
 
   <!--
 	<welcome-file-list>
