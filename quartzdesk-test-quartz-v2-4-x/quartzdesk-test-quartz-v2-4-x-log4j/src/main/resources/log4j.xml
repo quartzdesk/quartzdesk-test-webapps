@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+  -->
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+  <appender name="FILE" class="org.apache.log4j.rolling.RollingFileAppender">
+    <param name="append" value="true"/>
+    <param name="encoding" value="UTF-8"/>
+
+    <param name="threshold" value="INFO"/>
+
+    <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+      <param name="activeFileName" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-log4j.log" />
+      <!-- daily rollover -->
+      <param name="fileNamePattern" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-log4j.%d{yyyy-MM-dd}"/>
+    </rollingPolicy>
+
+    <layout class="org.apache.log4j.EnhancedPatternLayout">
+      <!--<param name="conversionPattern" value="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
+      <param name="conversionPattern" value="[%d{ISO8601}] [%t] [%C:%L] - %m%n"/>
+    </layout>
+  </appender>
+
+
+  <appender name="TRACE_FILE" class="org.apache.log4j.rolling.RollingFileAppender">
+    <param name="append" value="true"/>
+    <param name="encoding" value="UTF-8"/>
+
+    <param name="threshold" value="DEBUG"/>
+
+    <rollingPolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy" >
+      <param name="activeFileName" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-log4j-trace.log" />
+      <param name="fileNamePattern" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-log4j-trace.%i" />
+      <param name="minIndex" value="1" />
+      <param name="maxIndex" value="5" />
+    </rollingPolicy>
+
+    <triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
+      <param name="maxFileSize" value="2097152" />  <!-- 2 MB -->
+    </triggeringPolicy>
+
+    <layout class="org.apache.log4j.EnhancedPatternLayout">
+      <!--<param name="conversionPattern" value="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
+      <param name="conversionPattern" value="[%d{ISO8601}] [%t] [%C:%L] - %m%n"/>
+    </layout>
+  </appender>
+
+
+  <!--
+    Appender that passes all received log events to the QuartzDesk agent to intercept
+    log events produced by executed Quartz jobs.
+  -->
+  <!--<appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.log4j.ClassicLog4jInterceptionAppender">-->
+    <!--<param name="threshold" value="TRACE"/>-->
+
+    <!--<layout class="org.apache.log4j.EnhancedPatternLayout">-->
+      <!--<param name="conversionPattern" value="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
+    <!--</layout>-->
+  <!--</appender>-->
+
+  <appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.log4j.Log4jInterceptionAppender">
+    <param name="threshold" value="TRACE"/>
+
+    <layout class="org.apache.log4j.EnhancedPatternLayout">
+      <param name="conversionPattern" value="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>
+    </layout>
+  </appender>
+
+
+  <category name="com.quartzdesk">
+    <level value="TRACE"/>
+  </category>
+
+  <!--
+    Start of Spring framework logging configuration
+  -->
+
+  <!--
+    Loading of Spring application contexts from XML resources.
+  -->
+  <category name="org.springframework.beans.factory.xml">
+    <level value="INFO"/>
+  </category>
+
+  <!--
+    Loading of properties resources (eg. through the context:property-placeholder directive).
+  -->
+  <category name="org.springframework.core.io.support.PropertiesLoaderSupport">
+    <level value="INFO"/>
+  </category>
+
+  <!--
+    Spring web.
+  -->
+  <category name="org.springframework.web">
+    <level value="DEBUG"/>
+  </category>
+
+  <!--
+    All >= WARN messages from all libraries should be logged.
+  -->
+  <root>
+    <priority value="WARN"/>
+
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="TRACE_FILE"/>
+    <appender-ref ref="QUARTZDESK_JVM_AGENT"/>
+  </root>
+
+</log4j:configuration>

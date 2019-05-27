@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+  -->
+
+<!--
+  Used by JBoss 7.x.
+-->
+
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
+  <deployment>
+    <module-alias name="deployment.quartzdesk-test-quartz-v2-2-x-log4j"/>
+    <dependencies>
+      <system export="true">
+        <paths>
+
+          <!--
+            Required to prevent the following exception when creating the JMXMP connector.
+
+            java.lang.NoClassDefFoundError: com/sun/jmx/mbeanserver/GetPropertyAction
+              at javax.management.remote.generic.GenericConnectorServer.<init>(GenericConnectorServer.java:115) [jmxremote_optional-1.0.1_04.jar:]
+              at javax.management.remote.jmxmp.JMXMPConnectorServer.<init>(JMXMPConnectorServer.java:171) [jmxremote_optional-1.0.1_04.jar:]
+              at com.sun.jmx.remote.protocol.jmxmp.ServerProvider.newJMXConnectorServer(ServerProvider.java:33) [jmxremote_optional-1.0.1_04.jar:]
+              at javax.management.remote.JMXConnectorServerFactory.getConnectorServerAsService(JMXConnectorServerFactory.java:203) [rt.jar:1.6.0_43]
+              at javax.management.remote.JMXConnectorServerFactory.newJMXConnectorServer(JMXConnectorServerFactory.java:300) [rt.jar:1.6.0_43]
+              at org.springframework.jmx.support.ConnectorServerFactoryBean.afterPropertiesSet(ConnectorServerFactoryBean.java:154) [spring-context-3.2.0.RELEASE.jar:3.2.0.RELEASE]
+          -->
+          <path name="com/sun/jmx/mbeanserver" />
+        </paths>
+      </system>
+    </dependencies>
+
+    <!--
+      Exclude JBoss modules.
+
+      SLF4J must be excluded so that the test application uses the SLF4J APIs
+      bundled in the application (in WEB-INF/lib).
+    -->
+    <exclusions>
+      <module name="org.slf4j" />
+      <module name="org.slf4j.impl" />
+
+      <!--
+        Important to exclude the log4j module because we want to use log4j bundled in the application.
+      -->
+      <module name="org.apache.log4j" />
+    </exclusions>
+
+  </deployment>
+</jboss-deployment-structure>
