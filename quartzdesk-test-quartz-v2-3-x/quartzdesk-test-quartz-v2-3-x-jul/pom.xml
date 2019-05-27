@@ -11,13 +11,13 @@
   <packaging>war</packaging>
 
   <description>
-    A test web-application build on top of Quartz API v2.3.x and JUL logging API.
+    A test web-application build on top of Quartz API v2.3.0 and JUL logging API.
   </description>
 
   <parent>
     <groupId>com.quartzdesk-test-webapps</groupId>
     <artifactId>quartzdesk-test-quartz-v2-3-x</artifactId>
-    <version>3.7.0</version>
+    <version>4.0.0-SNAPSHOT</version>
   </parent>
 
   <properties>
