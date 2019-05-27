@@ -15,6 +15,18 @@
   <properties>
     <com.quartzdesk.version>4.0.0-SNAPSHOT</com.quartzdesk.version>
 
+    <!--
+      Implementation-Vendor-Id used in manifests.
+    -->
+    <vendor.id>com.quartzdesk</vendor.id>
+
+    <!--
+      To prevent "[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources,
+      i.e. build is platform dependent!" messages in the build log and also to make the changes
+      plugin send release announcements in UTF-8.
+    -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <org.slf4j.version>1.7.25</org.slf4j.version>
     <org.springframework.version>4.3.19.RELEASE</org.springframework.version>
   </properties>
@@ -29,6 +41,13 @@
     <name>QuartzDesk.com</name>
     <url>https://www.quartzdesk.com</url>
   </organization>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://github.com/quartzdesk/quartzdesk-test-webapps/blob/master/LICENSE</url>
+    </license>
+  </licenses>
 
   <scm>
     <developerConnection>scm:svn:svn://scm.quartzdesk.com/quartzdesk/quartzdesk-test-webapps/trunk</developerConnection>
