@@ -1,11 +1,11 @@
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:util="http://www.springframework.org/schema/util"
+<beans xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        	 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
@@ -14,7 +14,7 @@
     Job1.
   -->
   <bean id="job1" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job1"/>
     <property name="description"
@@ -63,7 +63,7 @@
     Job2 - has very long names (job name, group name, trigger name, trigger group name).
   -->
   <bean id="job2" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group"
               value="Group with some very very very very very very very very very very very very very long name"/>
     <property name="name"
@@ -104,7 +104,7 @@
     Job3 - has two cron triggers and two simple triggers
   -->
   <bean id="job3" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job3"/>
     <property name="description"
@@ -189,7 +189,8 @@
     <property name="group" value="quartzdesk-test"/>
     <property name="jobName" value="Job3"/>
     <property name="jobGroup" value="quartzdesk-test"/>
-    <property name="description" value="Daily time interval trigger that fires every hour between 8am and 6pm on Monday to Friday."/>
+    <property name="description"
+              value="Daily time interval trigger that fires every hour between 8am and 6pm on Monday to Friday."/>
     <property name="startTime" value="2016-01-01"/>
     <property name="repeatInterval" value="1"/>
     <property name="repeatIntervalUnit" value="HOUR"/>
@@ -231,7 +232,7 @@
     Job4 - has many job data map entries (both in the job and in the associated triggers).
   -->
   <bean id="job4" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job4"/>
     <!--
@@ -298,11 +299,11 @@
     Job5 for testing purposes.
   -->
   <bean id="job5" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job5"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -334,11 +335,11 @@
     Job6 for testing purposes.
   -->
   <bean id="job6" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job6"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -370,11 +371,11 @@
     Job7 for testing purposes.
   -->
   <bean id="job7" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job7"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -406,11 +407,11 @@
     Job8 for testing purposes.
   -->
   <bean id="job8" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job8"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -442,11 +443,11 @@
     Job9 for testing purposes.
   -->
   <bean id="job9" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job9"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -478,11 +479,11 @@
     Job10 for testing purposes.
   -->
   <bean id="job10" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job10"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -514,11 +515,11 @@
     Job11 for testing purposes.
   -->
   <bean id="job11" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job11"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -550,11 +551,11 @@
     Job12 for testing purposes.
   -->
   <bean id="job12" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job12"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -586,11 +587,11 @@
     Job13 for testing purposes.
   -->
   <bean id="job13" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job13"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -622,11 +623,11 @@
     Job14 for testing purposes.
   -->
   <bean id="job14" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job14"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -658,11 +659,11 @@
     Job15 for testing purposes.
   -->
   <bean id="job15" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="Job15"/>
     <property name="description"
-              value="Simple test job implemented by class com.quartzdesk.test.quartz.v2.TestJob"/>
+              value="Simple test job implemented by class com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
 
     <property name="durability" value="true"/>
 
@@ -694,7 +695,7 @@
     JobWithManyTriggers - has 100 cron triggers
   -->
   <bean id="jobWithManyTriggers" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="JobWithManyTriggers"/>
     <property name="description"
@@ -1928,7 +1929,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob00" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob00"/>
     <property name="description" value="One of many test jobs."/>
@@ -1970,7 +1971,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob01" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob01"/>
     <property name="description" value="One of many test jobs."/>
@@ -2012,7 +2013,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob02" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob02"/>
     <property name="description" value="One of many test jobs."/>
@@ -2054,7 +2055,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob03" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob03"/>
     <property name="description" value="One of many test jobs."/>
@@ -2096,7 +2097,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob04" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob04"/>
     <property name="description" value="One of many test jobs."/>
@@ -2139,7 +2140,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob05" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob05"/>
     <property name="description" value="One of many test jobs."/>
@@ -2181,7 +2182,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob06" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob06"/>
     <property name="description" value="One of many test jobs."/>
@@ -2223,7 +2224,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob07" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob07"/>
     <property name="description" value="One of many test jobs."/>
@@ -2265,7 +2266,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob08" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob08"/>
     <property name="description" value="One of many test jobs."/>
@@ -2307,7 +2308,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob09" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob09"/>
     <property name="description" value="One of many test jobs."/>
@@ -2350,7 +2351,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob10" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob10"/>
     <property name="description" value="One of many test jobs."/>
@@ -2392,7 +2393,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob11" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob11"/>
     <property name="description" value="One of many test jobs."/>
@@ -2434,7 +2435,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob12" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob12"/>
     <property name="description" value="One of many test jobs."/>
@@ -2476,7 +2477,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob13" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob13"/>
     <property name="description" value="One of many test jobs."/>
@@ -2518,7 +2519,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob14" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob14"/>
     <property name="description" value="One of many test jobs."/>
@@ -2561,7 +2562,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob15" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob15"/>
     <property name="description" value="One of many test jobs."/>
@@ -2603,7 +2604,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob16" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob16"/>
     <property name="description" value="One of many test jobs."/>
@@ -2645,7 +2646,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob17" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob17"/>
     <property name="description" value="One of many test jobs."/>
@@ -2687,7 +2688,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob18" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob18"/>
     <property name="description" value="One of many test jobs."/>
@@ -2729,7 +2730,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob19" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob19"/>
     <property name="description" value="One of many test jobs."/>
@@ -2772,7 +2773,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob20" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob20"/>
     <property name="description" value="One of many test jobs."/>
@@ -2814,7 +2815,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob21" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob21"/>
     <property name="description" value="One of many test jobs."/>
@@ -2856,7 +2857,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob22" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob22"/>
     <property name="description" value="One of many test jobs."/>
@@ -2898,7 +2899,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob23" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob23"/>
     <property name="description" value="One of many test jobs."/>
@@ -2940,7 +2941,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob24" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob24"/>
     <property name="description" value="One of many test jobs."/>
@@ -2983,7 +2984,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob25" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob25"/>
     <property name="description" value="One of many test jobs."/>
@@ -3025,7 +3026,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob26" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob26"/>
     <property name="description" value="One of many test jobs."/>
@@ -3067,7 +3068,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob27" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob27"/>
     <property name="description" value="One of many test jobs."/>
@@ -3109,7 +3110,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob28" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob28"/>
     <property name="description" value="One of many test jobs."/>
@@ -3151,7 +3152,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob29" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob29"/>
     <property name="description" value="One of many test jobs."/>
@@ -3194,7 +3195,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob30" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob30"/>
     <property name="description" value="One of many test jobs."/>
@@ -3236,7 +3237,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob31" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob31"/>
     <property name="description" value="One of many test jobs."/>
@@ -3278,7 +3279,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob32" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob32"/>
     <property name="description" value="One of many test jobs."/>
@@ -3320,7 +3321,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob33" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob33"/>
     <property name="description" value="One of many test jobs."/>
@@ -3362,7 +3363,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob34" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob34"/>
     <property name="description" value="One of many test jobs."/>
@@ -3405,7 +3406,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob35" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob35"/>
     <property name="description" value="One of many test jobs."/>
@@ -3447,7 +3448,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob36" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob36"/>
     <property name="description" value="One of many test jobs."/>
@@ -3489,7 +3490,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob37" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob37"/>
     <property name="description" value="One of many test jobs."/>
@@ -3531,7 +3532,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob38" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob38"/>
     <property name="description" value="One of many test jobs."/>
@@ -3573,7 +3574,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob39" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob39"/>
     <property name="description" value="One of many test jobs."/>
@@ -3616,7 +3617,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob40" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob40"/>
     <property name="description" value="One of many test jobs."/>
@@ -3658,7 +3659,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob41" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob41"/>
     <property name="description" value="One of many test jobs."/>
@@ -3700,7 +3701,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob42" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob42"/>
     <property name="description" value="One of many test jobs."/>
@@ -3742,7 +3743,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob43" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob43"/>
     <property name="description" value="One of many test jobs."/>
@@ -3784,7 +3785,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob44" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob44"/>
     <property name="description" value="One of many test jobs."/>
@@ -3827,7 +3828,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob45" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob45"/>
     <property name="description" value="One of many test jobs."/>
@@ -3869,7 +3870,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob46" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob46"/>
     <property name="description" value="One of many test jobs."/>
@@ -3911,7 +3912,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob47" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob47"/>
     <property name="description" value="One of many test jobs."/>
@@ -3953,7 +3954,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob48" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob48"/>
     <property name="description" value="One of many test jobs."/>
@@ -3995,7 +3996,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob49" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob49"/>
     <property name="description" value="One of many test jobs."/>
@@ -4038,7 +4039,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob50" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob50"/>
     <property name="description" value="One of many test jobs."/>
@@ -4080,7 +4081,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob51" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob51"/>
     <property name="description" value="One of many test jobs."/>
@@ -4122,7 +4123,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob52" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob52"/>
     <property name="description" value="One of many test jobs."/>
@@ -4164,7 +4165,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob53" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob53"/>
     <property name="description" value="One of many test jobs."/>
@@ -4206,7 +4207,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob54" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob54"/>
     <property name="description" value="One of many test jobs."/>
@@ -4249,7 +4250,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob55" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob55"/>
     <property name="description" value="One of many test jobs."/>
@@ -4291,7 +4292,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob56" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob56"/>
     <property name="description" value="One of many test jobs."/>
@@ -4333,7 +4334,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob57" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob57"/>
     <property name="description" value="One of many test jobs."/>
@@ -4375,7 +4376,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob58" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob58"/>
     <property name="description" value="One of many test jobs."/>
@@ -4417,7 +4418,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob59" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob59"/>
     <property name="description" value="One of many test jobs."/>
@@ -4460,7 +4461,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob60" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob60"/>
     <property name="description" value="One of many test jobs."/>
@@ -4502,7 +4503,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob61" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob61"/>
     <property name="description" value="One of many test jobs."/>
@@ -4544,7 +4545,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob62" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob62"/>
     <property name="description" value="One of many test jobs."/>
@@ -4586,7 +4587,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob63" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob63"/>
     <property name="description" value="One of many test jobs."/>
@@ -4628,7 +4629,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob64" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob64"/>
     <property name="description" value="One of many test jobs."/>
@@ -4671,7 +4672,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob65" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob65"/>
     <property name="description" value="One of many test jobs."/>
@@ -4713,7 +4714,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob66" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob66"/>
     <property name="description" value="One of many test jobs."/>
@@ -4755,7 +4756,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob67" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob67"/>
     <property name="description" value="One of many test jobs."/>
@@ -4797,7 +4798,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob68" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob68"/>
     <property name="description" value="One of many test jobs."/>
@@ -4839,7 +4840,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob69" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob69"/>
     <property name="description" value="One of many test jobs."/>
@@ -4882,7 +4883,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob70" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob70"/>
     <property name="description" value="One of many test jobs."/>
@@ -4924,7 +4925,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob71" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob71"/>
     <property name="description" value="One of many test jobs."/>
@@ -4966,7 +4967,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob72" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob72"/>
     <property name="description" value="One of many test jobs."/>
@@ -5008,7 +5009,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob73" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob73"/>
     <property name="description" value="One of many test jobs."/>
@@ -5050,7 +5051,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob74" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob74"/>
     <property name="description" value="One of many test jobs."/>
@@ -5093,7 +5094,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob75" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob75"/>
     <property name="description" value="One of many test jobs."/>
@@ -5135,7 +5136,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob76" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob76"/>
     <property name="description" value="One of many test jobs."/>
@@ -5177,7 +5178,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob77" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob77"/>
     <property name="description" value="One of many test jobs."/>
@@ -5219,7 +5220,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob78" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob78"/>
     <property name="description" value="One of many test jobs."/>
@@ -5261,7 +5262,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob79" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob79"/>
     <property name="description" value="One of many test jobs."/>
@@ -5304,7 +5305,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob80" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob80"/>
     <property name="description" value="One of many test jobs."/>
@@ -5346,7 +5347,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob81" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob81"/>
     <property name="description" value="One of many test jobs."/>
@@ -5388,7 +5389,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob82" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob82"/>
     <property name="description" value="One of many test jobs."/>
@@ -5430,7 +5431,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob83" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob83"/>
     <property name="description" value="One of many test jobs."/>
@@ -5472,7 +5473,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob84" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob84"/>
     <property name="description" value="One of many test jobs."/>
@@ -5515,7 +5516,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob85" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob85"/>
     <property name="description" value="One of many test jobs."/>
@@ -5557,7 +5558,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob86" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob86"/>
     <property name="description" value="One of many test jobs."/>
@@ -5599,7 +5600,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob87" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob87"/>
     <property name="description" value="One of many test jobs."/>
@@ -5641,7 +5642,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob88" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob88"/>
     <property name="description" value="One of many test jobs."/>
@@ -5683,7 +5684,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob89" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob89"/>
     <property name="description" value="One of many test jobs."/>
@@ -5726,7 +5727,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob90" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob90"/>
     <property name="description" value="One of many test jobs."/>
@@ -5768,7 +5769,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob91" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob91"/>
     <property name="description" value="One of many test jobs."/>
@@ -5810,7 +5811,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob92" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob92"/>
     <property name="description" value="One of many test jobs."/>
@@ -5852,7 +5853,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob93" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob93"/>
     <property name="description" value="One of many test jobs."/>
@@ -5894,7 +5895,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob94" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob94"/>
     <property name="description" value="One of many test jobs."/>
@@ -5937,7 +5938,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob95" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob95"/>
     <property name="description" value="One of many test jobs."/>
@@ -5979,7 +5980,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob96" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob96"/>
     <property name="description" value="One of many test jobs."/>
@@ -6021,7 +6022,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob97" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob97"/>
     <property name="description" value="One of many test jobs."/>
@@ -6063,7 +6064,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob98" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob98"/>
     <property name="description" value="One of many test jobs."/>
@@ -6105,7 +6106,7 @@
     ManyJobsJob - has 1 cron trigger
   -->
   <bean id="manyJobsJob99" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="ManyJobsJob99"/>
     <property name="description" value="One of many test jobs."/>
@@ -6148,7 +6149,7 @@
     InterruptibleJob.
   -->
   <bean id="interruptibleJob" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.InterruptibleTestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.InterruptibleTestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="InterruptibleTestJob"/>
     <property name="description"
@@ -6183,7 +6184,7 @@
     DisallowConcurrentExecutionTestJob.
   -->
   <bean id="disallowConcurrentExecutionTestJob" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.DisallowConcurrentExecutionTestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.DisallowConcurrentExecutionTestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="DisallowConcurrentExecutionTestJob"/>
     <property name="description"
@@ -6218,7 +6219,7 @@
     PersistJobDataAfterExecutionTestJob.
   -->
   <bean id="persistJobDataAfterExecutionJob" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.PersistJobDataAfterExecutionTestJob"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.PersistJobDataAfterExecutionTestJob"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="PersistJobDataAfterExecutionTestJob"/>
     <property name="description"
@@ -6253,7 +6254,7 @@
     TestJobWithWorkerThreads.
   -->
   <bean id="testJobWithWorkerThreads" class="org.quartz.impl.JobDetailImpl">
-    <property name="jobClass" value="com.quartzdesk.test.quartz.v2.TestJobWithWorkerThreads"/>
+    <property name="jobClass" value="com.quartzdesk.test_webapps.quartz.v2.TestJobWithWorkerThreads"/>
     <property name="group" value="quartzdesk-test"/>
     <property name="name" value="TestJobWithWorkerThreads"/>
     <property name="description"

@@ -26,7 +26,7 @@ No database is required. All test web applications use a Quartz RAM job store.
 
 QTWA provide the following Quartz job implementation classes that can be used to simulate various job execution conditions, e.g. a job execution failure, long running job execution etc. 
 
-## ![](media/job-impl-class-16x16.png) com.quartzdesk.test.quartz.vX.TestJob
+## ![](media/job-impl-class-16x16.png) com.quartzdesk.test_webapps.quartz.vX.TestJob
 A non-interruptible Quartz test job implementation class.
 
 This job supports the following job data map parameters:
@@ -42,23 +42,23 @@ This job supports the following job data map parameters:
 `userData`: an optional parameter that makes the test job set the QuartzDesk user-data value. The user-data value can be though of as 'result2' and it can be used by applications that already make use of the job execution result and want expose some additional job execution related data that can be displayed in the execution history view in the QuartzDesk GUI.
  
 
-## ![](media/job-impl-class-16x16.png) com.quartzdesk.test.quartz.vX.InterruptibleTestJob
-An interruptible test job implementation class that extends the `com.quartzdesk.test.quartz.vX.TestJob` class. Besides the standard `com.quartzdesk.test.quartz.vX.TestJob` job data map parameters, this 
+## ![](media/job-impl-class-16x16.png) com.quartzdesk.test_webapps.quartz.vX.InterruptibleTestJob
+An interruptible test job implementation class that extends the `com.quartzdesk.test_webapps.quartz.vX.TestJob` class. Besides the standard `com.quartzdesk.test_webapps.quartz.vX.TestJob` job data map parameters, this 
 implementation class supports the following job data map parameter: 
 
 `interruptException`: an optional parameter that makes the test job throw an [org.quartz.UnableToInterruptJobException](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/UnableToInterruptJobException.html) when the jobs receives an interrupt request.
 
 
-## ![](media/job-impl-class-16x16.png) com.quartzdesk.test.quartz.vX.DisallowConcurrentExecutionTestJob
-A test job implementation class that extends the `com.quartzdesk.test.quartz.vX.TestJob` class and that is annotated with the [DisallowConcurrentExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/DisallowConcurrentExecution.html) annotation that prevents concurrent execution of multiple instances of a job that makes use of this job implementation class.    
+## ![](media/job-impl-class-16x16.png) com.quartzdesk.test_webapps.quartz.vX.DisallowConcurrentExecutionTestJob
+A test job implementation class that extends the `com.quartzdesk.test_webapps.quartz.vX.TestJob` class and that is annotated with the [DisallowConcurrentExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/DisallowConcurrentExecution.html) annotation that prevents concurrent execution of multiple instances of a job that makes use of this job implementation class.    
 
 
-## ![](media/job-impl-class-16x16.png) com.quartzdesk.test.quartz.vX.PersistJobDataAfterExecutionTestJob
-A test job implementation class that extends the `com.quartzdesk.test.quartz.vX.TestJob` class and that is annotated with the [DisallowConcurrentExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/DisallowConcurrentExecution.html) and [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotations. This implementation class increments the value of the `execCount` job data map parameter in the job detail. Since this class is annotated with the [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotation, the updated `execCount` value is persisted and passed to the job during its next execution.
+## ![](media/job-impl-class-16x16.png) com.quartzdesk.test_webapps.quartz.vX.PersistJobDataAfterExecutionTestJob
+A test job implementation class that extends the `com.quartzdesk.test_webapps.quartz.vX.TestJob` class and that is annotated with the [DisallowConcurrentExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/DisallowConcurrentExecution.html) and [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotations. This implementation class increments the value of the `execCount` job data map parameter in the job detail. Since this class is annotated with the [PersistJobDataAfterExecution](http://www.quartz-scheduler.org/api/2.2.1/org/quartz/PersistJobDataAfterExecution.html) annotation, the updated `execCount` value is persisted and passed to the job during its next execution.
 
 
-## ![](media/job-impl-class-16x16.png) com.quartzdesk.test.quartz.vX.TestJobWithWorkerThreads  
-A test job implementation class that extends the `com.quartzdesk.test.quartz.vX.TestJob` class and that spawns multiple worker threads from the main job execution thread. This job implementation class is used for testing of interception of log messages produced by the spawned worker threads. 
+## ![](media/job-impl-class-16x16.png) com.quartzdesk.test_webapps.quartz.vX.TestJobWithWorkerThreads  
+A test job implementation class that extends the `com.quartzdesk.test_webapps.quartz.vX.TestJob` class and that spawns multiple worker threads from the main job execution thread. This job implementation class is used for testing of interception of log messages produced by the spawned worker threads. 
 
 
 ## ![](media/job-impl-class-16x16.png) com.quartzdesk.api.scheduler.quartz.vX.job.spring.SpringBeanInvokerJob
@@ -103,4 +103,4 @@ If you want to contribute your changes and improvements, please contact us so th
 
 # Copyright and License
 
-Code and documentation copyright 2013-2019 the QuartzDesk Test Web Applications authors and QuartzDesk.com. Code and docs released under the MIT license.
+Code and documentation copyright 2013-2020 the QuartzDesk Test Web Applications authors and QuartzDesk.com. Code and docs released under the MIT license.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -16,9 +16,10 @@
     <param name="threshold" value="INFO"/>
 
     <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
-      <param name="activeFileName" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j.log" />
+      <param name="activeFileName" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j.log"/>
       <!-- daily rollover -->
-      <param name="fileNamePattern" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j.%d{yyyy-MM-dd}"/>
+      <param name="fileNamePattern"
+             value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j.%d{yyyy-MM-dd}"/>
     </rollingPolicy>
 
     <layout class="org.apache.log4j.EnhancedPatternLayout">
@@ -34,15 +35,15 @@
 
     <param name="threshold" value="DEBUG"/>
 
-    <rollingPolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy" >
-      <param name="activeFileName" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j-trace.log" />
-      <param name="fileNamePattern" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j-trace.%i" />
-      <param name="minIndex" value="1" />
-      <param name="maxIndex" value="5" />
+    <rollingPolicy class="org.apache.log4j.rolling.FixedWindowRollingPolicy">
+      <param name="activeFileName" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j-trace.log"/>
+      <param name="fileNamePattern" value="${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v1-8-x-log4j-trace.%i"/>
+      <param name="minIndex" value="1"/>
+      <param name="maxIndex" value="5"/>
     </rollingPolicy>
 
     <triggeringPolicy class="org.apache.log4j.rolling.SizeBasedTriggeringPolicy">
-      <param name="maxFileSize" value="2097152" />  <!-- 2 MB -->
+      <param name="maxFileSize" value="2097152"/>  <!-- 2 MB -->
     </triggeringPolicy>
 
     <layout class="org.apache.log4j.EnhancedPatternLayout">
@@ -57,11 +58,11 @@
     log events produced by executed Quartz jobs.
   -->
   <!--<appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.log4j.ClassicLog4jInterceptionAppender">-->
-    <!--<param name="threshold" value="TRACE"/>-->
+  <!--<param name="threshold" value="TRACE"/>-->
 
-    <!--<layout class="org.apache.log4j.EnhancedPatternLayout">-->
-      <!--<param name="conversionPattern" value="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
-    <!--</layout>-->
+  <!--<layout class="org.apache.log4j.EnhancedPatternLayout">-->
+  <!--<param name="conversionPattern" value="[%d{ISO8601}] %!.1p [%t] [%C:%L] - %m%n"/>-->
+  <!--</layout>-->
   <!--</appender>-->
 
   <appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.log4j.Log4jInterceptionAppender">

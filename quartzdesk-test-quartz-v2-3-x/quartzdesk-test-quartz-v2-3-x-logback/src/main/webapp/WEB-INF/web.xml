@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
-<web-app id="quartzdesk-test-quartz-v2-2-x-logback"
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         id="quartzdesk-test-quartz-v2-3-x-logback"
          version="2.4"
          xmlns="http://java.sun.com/xml/ns/j2ee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-  <description>Quartz v2.x Test Application (Logback)</description>
-  <display-name>quartzdesk-test-quartz-v2-2-x-logback</display-name>
+  <description>Quartz 2.3.x Test Application (Logback)</description>
+  <display-name>quartzdesk-test-quartz-v2-3-x-logback</display-name>
 
   <!-- Start of Spring stuff -->
 
@@ -37,7 +37,7 @@
       Servlet context listener that stops the Quartz scheduler and waits for all currently executing jobs to finish.
     </description>
     <display-name>Shutdown Servlet Context Listener</display-name>
-    <listener-class>com.quartzdesk.test.ShutdownServletContextListener</listener-class>
+    <listener-class>com.quartzdesk.test_webapps.ShutdownServletContextListener</listener-class>
   </listener>
 
   <!--

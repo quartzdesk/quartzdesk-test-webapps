@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -10,12 +10,12 @@
     Registers the MBean for logback management in the JMX server under the given context name.
   -->
   <!--
-  <contextName>quartzdesk-test-quartz-v2-2-x-logback</contextName>
+  <contextName>quartzdesk-test_webapps-quartz-v2-4-x-logback</contextName>
   <jmxConfigurator/>
   -->
 
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-logback.log</file>
+    <file>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-4-x-logback.log</file>
     <append>true</append>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -24,7 +24,7 @@
 
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover -->
-      <fileNamePattern>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-logback.%d{yyyy-MM-dd}</fileNamePattern>
+      <fileNamePattern>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-4-x-logback.%d{yyyy-MM-dd}</fileNamePattern>
       <!-- keep 10 days' worth of history -->
       <maxHistory>10</maxHistory>
     </rollingPolicy>
@@ -37,7 +37,7 @@
 
 
   <appender name="TRACE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-logback-trace.log</file>
+    <file>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-4-x-logback-trace.log</file>
     <append>true</append>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -45,7 +45,7 @@
 		</filter>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <fileNamePattern>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-2-x-logback-trace.%i</fileNamePattern>
+      <fileNamePattern>${quartzdesk-test.logs.dir}/quartzdesk-test-quartz-v2-4-x-logback-trace.%i</fileNamePattern>
       <minIndex>1</minIndex>
       <maxIndex>5</maxIndex>
     </rollingPolicy>
@@ -66,13 +66,13 @@
     log events produced by executed Quartz jobs.
   -->
   <!--<appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.logback.ClassicLogbackInterceptionAppender">-->
-    <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
-      <!--<level>TRACE</level>-->
-    <!--</filter>-->
+  <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+  <!--<level>TRACE</level>-->
+  <!--</filter>-->
 
-    <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
-      <!--<pattern>[%date] %.-1level [%thread] [%logger:%line] - %msg%n</pattern>-->
-    <!--</layout>-->
+  <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+  <!--<pattern>[%date] %.-1level [%thread] [%logger:%line] - %msg%n</pattern>-->
+  <!--</layout>-->
   <!--</appender>-->
 
   <appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.logback.LogbackInterceptionAppender">

@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>quartzdesk-test-quartz-v1-8-5</artifactId>
@@ -17,10 +18,12 @@
   <parent>
     <groupId>com.quartzdesk-test-webapps</groupId>
     <artifactId>quartzdesk-test-quartz-v1-8-x</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.0.0</version>
   </parent>
 
   <properties>
+    <module.name>com.quartzdesk.test_webapps.quartz.v1_8_5</module.name>
+
     <org.quartz-scheduler.quartz.version>1.8.5</org.quartz-scheduler.quartz.version>
 
     <!--
@@ -49,7 +52,7 @@
     <!-- QuartzDesk dependencies -->
 
     <!--
-      Included so that we can debug QuartzDesk JVM Agent with test webapps.
+      Included so that we can debug QuartzDesk JVM Agent with test_webapps webapps.
     -->
     <dependency>
       <groupId>com.quartzdesk</groupId>
@@ -76,25 +79,14 @@
       <scope>runtime</scope>
     </dependency>
 
+
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
+      <artifactId>javax.servlet-api</artifactId>
       <!-- Provided by the servlet engine runtime -->
       <scope>provided</scope>
     </dependency>
 
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
-      <!-- Provided by the servlet engine runtime -->
-      <scope>provided</scope>
-    </dependency>
 
     <dependency>
       <groupId>javax.management</groupId>
@@ -102,6 +94,7 @@
       <!-- Required for the JMXMP JMX protocol -->
       <scope>runtime</scope>
     </dependency>
+
 
     <dependency>
       <groupId>org.quartz-scheduler</groupId>
@@ -120,11 +113,13 @@
       <scope>compile</scope>
     </dependency>
 
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <scope>compile</scope>
     </dependency>
+
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -132,11 +127,13 @@
       <scope>runtime</scope>
     </dependency>
 
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
       <scope>runtime</scope>
     </dependency>
+
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -144,11 +141,13 @@
       <scope>runtime</scope>
     </dependency>
 
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
       <scope>compile</scope>
     </dependency>
+
 
     <dependency>
       <groupId>org.springframework</groupId>
@@ -156,11 +155,13 @@
       <scope>compile</scope>
     </dependency>
 
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
       <scope>compile</scope>
     </dependency>
+
 
     <dependency>
       <groupId>org.springframework</groupId>
@@ -168,11 +169,13 @@
       <scope>runtime</scope>
     </dependency>
 
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
       <scope>compile</scope>
     </dependency>
+
 
     <dependency>
       <groupId>org.testng</groupId>

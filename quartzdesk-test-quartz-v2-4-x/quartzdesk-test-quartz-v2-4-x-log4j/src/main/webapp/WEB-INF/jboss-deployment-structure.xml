@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -11,7 +11,7 @@
 
 <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
   <deployment>
-    <module-alias name="deployment.quartzdesk-test-quartz-v2-2-x-log4j"/>
+    <module-alias name="deployment.quartzdesk-test-quartz-v2-4-x-log4j"/>
     <dependencies>
       <system export="true">
         <paths>
@@ -27,7 +27,7 @@
               at javax.management.remote.JMXConnectorServerFactory.newJMXConnectorServer(JMXConnectorServerFactory.java:300) [rt.jar:1.6.0_43]
               at org.springframework.jmx.support.ConnectorServerFactoryBean.afterPropertiesSet(ConnectorServerFactoryBean.java:154) [spring-context-3.2.0.RELEASE.jar:3.2.0.RELEASE]
           -->
-          <path name="com/sun/jmx/mbeanserver" />
+          <path name="com/sun/jmx/mbeanserver"/>
         </paths>
       </system>
     </dependencies>
@@ -35,17 +35,17 @@
     <!--
       Exclude JBoss modules.
 
-      SLF4J must be excluded so that the test application uses the SLF4J APIs
+      SLF4J must be excluded so that the test_webapps application uses the SLF4J APIs
       bundled in the application (in WEB-INF/lib).
     -->
     <exclusions>
-      <module name="org.slf4j" />
-      <module name="org.slf4j.impl" />
+      <module name="org.slf4j"/>
+      <module name="org.slf4j.impl"/>
 
       <!--
         Important to exclude the log4j module because we want to use log4j bundled in the application.
       -->
-      <module name="org.apache.log4j" />
+      <module name="org.apache.log4j"/>
     </exclusions>
 
   </deployment>

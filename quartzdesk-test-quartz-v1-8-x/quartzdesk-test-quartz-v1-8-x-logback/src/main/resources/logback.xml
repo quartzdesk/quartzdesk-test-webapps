@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -10,7 +10,7 @@
     Registers the MBean for logback management in the JMX server under the given context name.
   -->
   <!--
-  <contextName>quartzdesk-test-quartz-v1-8-x-logback</contextName>
+  <contextName>quartzdesk-test_webapps-quartz-v1-8-x-logback</contextName>
   <jmxConfigurator/>
   -->
 
@@ -66,13 +66,13 @@
     log events produced by executed Quartz jobs.
   -->
   <!--<appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.logback.ClassicLogbackInterceptionAppender">-->
-    <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
-      <!--<level>TRACE</level>-->
-    <!--</filter>-->
+  <!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+  <!--<level>TRACE</level>-->
+  <!--</filter>-->
 
-    <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
-      <!--<pattern>[%date] %.-1level [%thread] [%logger:%line] - %msg%n</pattern>-->
-    <!--</layout>-->
+  <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+  <!--<pattern>[%date] %.-1level [%thread] [%logger:%line] - %msg%n</pattern>-->
+  <!--</layout>-->
   <!--</appender>-->
 
   <appender name="QUARTZDESK_JVM_AGENT" class="com.quartzdesk.api.agent.log.logback.LogbackInterceptionAppender">

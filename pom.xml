@@ -1,35 +1,17 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>4.0.0-SNAPSHOT</version>
-
-  <properties>
-    <com.quartzdesk.version>4.0.0-SNAPSHOT</com.quartzdesk.version>
-
-    <!--
-      Implementation-Vendor-Id used in manifests.
-    -->
-    <vendor.id>com.quartzdesk</vendor.id>
-
-    <!--
-      To prevent "[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources,
-      i.e. build is platform dependent!" messages in the build log and also to make the changes
-      plugin send release announcements in UTF-8.
-    -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <org.slf4j.version>1.7.28</org.slf4j.version>
-    <org.springframework.version>5.1.9.RELEASE</org.springframework.version>
-  </properties>
+  <version>4.0.0</version>
 
   <name>QuartzDesk Test Web Applications</name>
 
@@ -67,13 +49,38 @@
   </modules>
 
 
+  <properties>
+    <module.name>com.quartzdesk-test-webapps</module.name>
+
+    <com.quartzdesk.version>4.0.0</com.quartzdesk.version>
+
+    <!--
+      Implementation-Vendor-Id used in manifests.
+    -->
+    <vendor.id>com.quartzdesk</vendor.id>
+
+    <!--
+      To prevent "[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources,
+      i.e. build is platform dependent!" messages in the build log and also to make the changes
+      plugin send release announcements in UTF-8.
+    -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
+
+    <org.slf4j.version>1.7.29</org.slf4j.version>
+
+    <org.springframework.version>5.2.1.RELEASE</org.springframework.version>
+  </properties>
+
+
   <dependencyManagement>
     <dependencies>
 
       <!-- QuartzDesk.com dependencies -->
 
       <!--
-        Included so that we can debug QuartzDesk JVM Agent with test webapps.
+        Included so that we can debug QuartzDesk JVM Agent with test_webapps webapps.
       -->
       <dependency>
         <groupId>com.quartzdesk</groupId>
@@ -81,25 +88,29 @@
         <version>${com.quartzdesk.version}</version>
       </dependency>
 
+
       <dependency>
         <groupId>com.quartzdesk</groupId>
         <artifactId>quartzdesk-api</artifactId>
         <version>${com.quartzdesk.version}</version>
       </dependency>
 
+
       <!-- 3rd party dependencies -->
 
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>1.1.7</version>
+        <version>1.2.3</version>
       </dependency>
+
 
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
-        <version>1.1.7</version>
+        <version>1.2.3</version>
       </dependency>
+
 
       <!--
         Runtime dependency required by asynchronous LOG4J2 loggers.
@@ -110,29 +121,23 @@
         <version>3.3.7</version>
       </dependency>
 
+
       <dependency>
         <groupId>javax.management</groupId>
         <artifactId>jmxremote_optional</artifactId>
         <version>1.0.1_04</version>
       </dependency>
 
+
+      <!--
+        servlet-api 3.0 : Tomcat >= 7
+      -->
       <dependency>
         <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>2.5</version>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${javax.servlet-api.version}</version>
       </dependency>
 
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>jstl</artifactId>
-        <version>1.2</version>
-      </dependency>
-
-      <dependency>
-        <groupId>javax.servlet.jsp</groupId>
-        <artifactId>jsp-api</artifactId>
-        <version>2.1</version>
-      </dependency>
 
       <dependency>
         <groupId>javaee</groupId>
@@ -140,11 +145,13 @@
         <version>5</version>
       </dependency>
 
+
       <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
         <version>1.2.17</version>
       </dependency>
+
 
       <dependency>
         <groupId>log4j</groupId>
@@ -152,11 +159,13 @@
         <version>1.1</version>
       </dependency>
 
+
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-api</artifactId>
         <version>2.11.2</version>
       </dependency>
+
 
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
@@ -164,17 +173,20 @@
         <version>2.11.2</version>
       </dependency>
 
+
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-slf4j-impl</artifactId>
         <version>2.11.2</version>
       </dependency>
 
+
       <dependency>
         <groupId>org.jvnet.jaxb2_commons</groupId>
         <artifactId>jaxb2-basics-runtime</artifactId>
-        <version>0.6.4</version>
+        <version>1.11.1</version>
       </dependency>
+
 
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -182,11 +194,13 @@
         <version>${org.slf4j.version}</version>
       </dependency>
 
+
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-jdk14</artifactId>
         <version>${org.slf4j.version}</version>
       </dependency>
+
 
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -194,11 +208,13 @@
         <version>${org.slf4j.version}</version>
       </dependency>
 
+
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
         <version>${org.slf4j.version}</version>
       </dependency>
+
 
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -206,11 +222,13 @@
         <version>${org.slf4j.version}</version>
       </dependency>
 
+
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
         <version>${org.slf4j.version}</version>
       </dependency>
+
 
       <!--
         Core utilities used by other modules.
@@ -230,6 +248,7 @@
         </exclusions>
       </dependency>
 
+
       <!--
         Expression Language (depends on spring-core)
         Define this if you use Spring Expression APIs (org.springframework.expression.*)
@@ -239,6 +258,7 @@
         <artifactId>spring-expression</artifactId>
         <version>${org.springframework.version}</version>
       </dependency>
+
 
       <!--
         Bean Factory and JavaBeans utilities (depends on spring-core)
@@ -250,6 +270,7 @@
         <version>${org.springframework.version}</version>
       </dependency>
 
+
       <!--
         Aspect Oriented Programming (AOP) Framework (depends on spring-core, spring-beans)
         Define this if you use Spring AOP APIs (org.springframework.aop.*)
@@ -259,6 +280,7 @@
         <artifactId>spring-aop</artifactId>
         <version>${org.springframework.version}</version>
       </dependency>
+
 
       <!--
         Application Context (depends on spring-core, spring-expression, spring-aop, spring-beans)
@@ -270,6 +292,7 @@
         <version>${org.springframework.version}</version>
       </dependency>
 
+
       <!--
         Various Application Context utilities, including EhCache, JavaMail, Quartz, and Freemarker integration
         Define this if you need any of these integrations
@@ -280,6 +303,7 @@
         <version>${org.springframework.version}</version>
       </dependency>
 
+
       <!--
         JDBC Data Access Library (depends on core, beans, context, transaction)
         Define this if you use Spring's JdbcTemplate API (org.springframework.jdbc.*)
@@ -289,6 +313,7 @@
         <artifactId>spring-jdbc</artifactId>
         <version>${org.springframework.version}</version>
       </dependency>
+
 
       <!--
         Object-to-Relation-Mapping (ORM) integration with Hibernate, JPA, and iBatis.
@@ -301,6 +326,7 @@
         <version>${org.springframework.version}</version>
       </dependency>
 
+
       <!--
         Object-to-XML Mapping (OXM) abstraction and integration with JAXB, JiBX, Castor, XStream, and XML Beans.
         (depends on spring-core, spring-beans, spring-context)
@@ -311,6 +337,7 @@
         <artifactId>spring-oxm</artifactId>
         <version>${org.springframework.version}</version>
       </dependency>
+
 
       <!--
         Transaction Management Abstraction (depends on spring-core, spring-beans, spring-aop, spring-context)
@@ -323,6 +350,7 @@
         <version>${org.springframework.version}</version>
       </dependency>
 
+
       <!--
         Web application development utilities applicable to both Servlet and Portlet Environments
         (depends on spring-core, spring-beans, spring-context)
@@ -334,6 +362,7 @@
         <version>${org.springframework.version}</version>
       </dependency>
 
+
       <!--
         Spring MVC for Servlet Environments (depends on spring-core, spring-beans, spring-context, spring-web)
         Define this if you use Spring MVC with a Servlet Container such as Apache Tomcat (org.springframework.web.servlet.*)
@@ -344,15 +373,17 @@
         <version>${org.springframework.version}</version>
       </dependency>
 
+
       <!--
         Support for testing Spring applications with tools such as JUnit and TestNG
-        This artifact is generally always defined with a 'test' scope for the integration testing framework and unit testing stubs
+        This artifact is generally always defined with a 'test_webapps' scope for the integration testing framework and unit testing stubs
       -->
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-test</artifactId>
         <version>${org.springframework.version}</version>
       </dependency>
+
 
       <dependency>
         <groupId>org.springframework.ws</groupId>
@@ -368,10 +399,11 @@
         </exclusions>
       </dependency>
 
+
       <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
-        <version>5.14.7</version>
+        <version>7.0.0</version>
       </dependency>
 
     </dependencies>
@@ -390,12 +422,27 @@
 
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.1</version>
+          <version>3.8.1</version>
           <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+            <source>1.8</source>
+            <target>1.8</target>
+            <!-- Include debugging information in generated bytecode. -->
+            <debug>true</debug>
             <encoding>UTF-8</encoding>
+            <!-- Include metadata for reflection on method parameters in generated bytecode. -->
+            <parameters>true</parameters>
+            <showDeprecation>true</showDeprecation>
+            <showWarnings>true</showWarnings>
+            <compilerArgs>
+              <arg>-Xlint:unchecked</arg>
+            </compilerArgs>
           </configuration>
+        </plugin>
+
+
+        <plugin>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>3.0.0-M2</version>
         </plugin>
 
 
@@ -476,6 +523,8 @@
                 <addDefaultImplementationEntries>false</addDefaultImplementationEntries>
               </manifest>
               <manifestEntries>
+                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
+
                 <!--
                   build.date is set by the maven-buildmetadata-plugin
                 -->
@@ -552,7 +601,31 @@
       </plugins>
     </pluginManagement>
 
+
     <plugins>
+
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>enforce-versions</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>3.0.5</version>
+                </requireMavenVersion>
+                <requireJavaVersion>
+                  <version>1.7</version>
+                </requireJavaVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
 
       <plugin>
         <artifactId>maven-release-plugin</artifactId>

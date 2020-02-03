@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~ Copyright (c) 2013-2019 QuartzDesk.com.
+  ~ Copyright (c) 2013-2020 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        	 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-  <context:property-placeholder system-properties-mode="OVERRIDE" />
+  <context:property-placeholder system-properties-mode="OVERRIDE"/>
 
   <context:mbean-server/>
 
@@ -26,7 +26,7 @@
   <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
     <property name="propertyEditorRegistrars">
       <util:list>
-        <bean class="com.quartzdesk.test.common.spring.CustomEditorRegistrar"/>
+        <bean class="com.quartzdesk.test_webapps.common.spring.CustomEditorRegistrar"/>
       </util:list>
     </property>
   </bean>
@@ -57,7 +57,7 @@
           within the same program. If you are using the clustering features, you must use the same
           name for every instance in the cluster that is 'logically' the same Scheduler.
         -->
-        <!--<prop key="org.quartz.scheduler.instanceName">quartzdesk-test-quartz-v2-0-1</prop>-->
+        <!--<prop key="org.quartz.scheduler.instanceName">quartzdesk-test_webapps-quartz-v2-0-1</prop>-->
 
         <!--
           In non-clustered environments always set to NON_CLUSTERED.
@@ -75,7 +75,8 @@
         -->
         <prop key="org.quartz.scheduler.jmx.export">true</prop>
 
-        <prop key="org.quartz.scheduler.jmx.objectName">quartz:type=QuartzScheduler,name=quartzdesk-test-quartz-v2-0-1</prop>
+        <prop
+            key="org.quartz.scheduler.jmx.objectName">quartz:type=QuartzScheduler,name=quartzdesk-test-quartz-v2-0-1</prop>
 
         <!--
           The scheduler thread will be marked as a daemon thread.
@@ -489,7 +490,7 @@
 
     <property name="globalTriggerListeners">
       <list value-type="org.quartz.TriggerListener">
-        <bean class="com.quartzdesk.test.quartz.v2.TestTriggerListener"/>
+        <bean class="com.quartzdesk.test_webapps_webapps.quartz.v2.TestTriggerListener"/>
       </list>
     </property>
     -->
@@ -624,7 +625,7 @@
      <property name="targetMethod" value="addTriggerListener"/>
     <property name="arguments">
       <list>
-        <bean class="com.quartzdesk.test.quartz.v2.TestTriggerListener"/>
+        <bean class="com.quartzdesk.test_webapps.quartz.v2.TestTriggerListener"/>
         <list/>
         <!-- empty list of Matchers = listener will be registered as a global listener -->
       </list>
