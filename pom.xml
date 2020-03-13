@@ -50,7 +50,7 @@
 
 
   <properties>
-    <module.name>com.quartzdesk-test-webapps</module.name>
+    <module.name>com.quartzdesk.test_webapps</module.name>
 
     <com.quartzdesk.version>4.0.0</com.quartzdesk.version>
 
@@ -70,7 +70,7 @@
 
     <org.slf4j.version>1.7.29</org.slf4j.version>
 
-    <org.springframework.version>5.2.1.RELEASE</org.springframework.version>
+    <org.springframework.version>5.2.3.RELEASE</org.springframework.version>
   </properties>
 
 
@@ -522,6 +522,7 @@
               <manifest>
                 <addDefaultImplementationEntries>false</addDefaultImplementationEntries>
               </manifest>
+
               <manifestEntries>
                 <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
 

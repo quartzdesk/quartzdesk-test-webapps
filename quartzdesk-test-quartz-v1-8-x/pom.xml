@@ -49,18 +49,6 @@
         </executions>
       </plugin>
 
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib</classpathPrefix>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-
     </plugins>
   </build>
 
