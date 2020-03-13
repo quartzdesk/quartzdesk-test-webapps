@@ -5,7 +5,7 @@ QuartzDesk Test Web Applications (QTWA) are simple Java test web applications th
 # Requirements
 
 ### Java
-JDK 1.7 or newer.
+JDK 8 or newer.
 
 ### Application Container / Server
 Any modern Java servlet container or application server. QTWA are known to work on:
