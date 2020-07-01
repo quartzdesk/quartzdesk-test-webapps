@@ -37,7 +37,7 @@
     -->
     <org.springframework.version>4.0.9.RELEASE</org.springframework.version>
 
-    <org.quartz-scheduler.quartz.version>2.0.2</org.quartz-scheduler.quartz.version>
+    <org.quartz-scheduler.quartz.version>2.3.2</org.quartz-scheduler.quartz.version>
   </properties>
 
   <dependencies>
