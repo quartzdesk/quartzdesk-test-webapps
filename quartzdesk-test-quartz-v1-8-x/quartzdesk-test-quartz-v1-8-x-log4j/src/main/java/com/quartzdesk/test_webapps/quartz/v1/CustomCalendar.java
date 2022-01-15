@@ -1,4 +1,4 @@
-package com.quartzdesk.test_webapps.quartz.v2;
+package com.quartzdesk.test_webapps.quartz.v1;
 
 import org.quartz.impl.calendar.BaseCalendar;
 

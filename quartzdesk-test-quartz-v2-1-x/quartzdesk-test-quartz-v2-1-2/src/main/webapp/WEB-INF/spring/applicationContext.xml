@@ -40,6 +40,32 @@
         class="com.quartzdesk.api.spring.ApplicationContextAccessor"/>
 
 
+  <!-- Sample weekly calendar used as a base calendar; this calendar excludes SAT and SUN  -->
+  <bean id="baseCalendar" class="org.quartz.impl.calendar.WeeklyCalendar">
+    <property name="daysExcluded">
+      <list value-type="java.lang.Boolean">
+        <!-- 0 - dummy value -->
+        <value>false</value>
+        <!-- SUNDAY -->
+        <value>true</value>
+        <!-- MONDAY -->
+        <value>false</value>
+        <!-- TUESDAY -->
+        <value>false</value>
+        <!-- WEDNESDAY -->
+        <value>false</value>
+        <!-- THURSDAY -->
+        <value>false</value>
+        <!-- FRIDAY -->
+        <value>false</value>
+        <!-- SATURDAY -->
+        <value>true</value>
+      </list>
+    </property>
+    <property name="description" value="Test org.quartz.impl.calendar.WeeklyCalendar instance used as a base calendar."/>
+  </bean>
+
+
   <!-- Quartz-based scheduler -->
   <bean id="quartzScheduler"
         class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
@@ -501,8 +527,9 @@
 
         <entry key="dailyCalendar">
           <bean class="org.quartz.impl.calendar.DailyCalendar">
-            <constructor-arg name="rangeStartingTime" value="00:00:00:000"/>
-            <constructor-arg name="rangeEndingTime" value="00:00:00:001"/>
+            <constructor-arg name="rangeStartingTime" value="10:00:00:000"/>
+            <constructor-arg name="rangeEndingTime" value="14:00:00:000"/>
+            <property name="description" value="Test org.quartz.impl.calendar.DailyCalendar instance."/>
           </bean>
         </entry>
 
@@ -513,33 +540,32 @@
                 <!-- 0 - dummy value -->
                 <value>false</value>
                 <!-- SUNDAY -->
-                <value>false</value>
+                <value>true</value>
                 <!-- MONDAY -->
-                <value>false</value>
+                <value>true</value>
                 <!-- TUESDAY -->
                 <value>false</value>
                 <!-- WEDNESDAY -->
-                <value>false</value>
+                <value>true</value>
                 <!-- THURSDAY -->
                 <value>false</value>
                 <!-- FRIDAY -->
-                <value>false</value>
+                <value>true</value>
                 <!-- SATURDAY -->
                 <value>false</value>
               </list>
             </property>
+            <property name="description" value="Test org.quartz.impl.calendar.WeeklyCalendar instance."/>
           </bean>
         </entry>
 
         <entry key="monthlyCalendar">
           <bean class="org.quartz.impl.calendar.MonthlyCalendar">
-            <!-- X, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ... 31 -->
+            <!-- 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ... 31 -->
             <property name="daysExcluded">
               <list value-type="java.lang.Boolean">
-                <!-- 0 - dummy day -->
-                <value>false</value>
                 <!-- 1..10 -->
-                <value>false</value>
+                <value>true</value>
                 <value>false</value>
                 <value>false</value>
                 <value>false</value>
@@ -551,7 +577,7 @@
                 <value>false</value>
 
                 <!-- 11..20 -->
-                <value>false</value>
+                <value>true</value>
                 <value>false</value>
                 <value>false</value>
                 <value>false</value>
@@ -563,7 +589,7 @@
                 <value>false</value>
 
                 <!-- 21..30 -->
-                <value>false</value>
+                <value>true</value>
                 <value>false</value>
                 <value>false</value>
                 <value>false</value>
@@ -575,9 +601,10 @@
                 <value>false</value>
 
                 <!-- 31 -->
-                <value>false</value>
+                <value>true</value>
               </list>
             </property>
+            <property name="description" value="Test org.quartz.impl.calendar.MonthlyCalendar instance."/>
           </bean>
         </entry>
 
@@ -585,19 +612,67 @@
           <bean class="org.quartz.impl.calendar.AnnualCalendar">
             <!-- list of java.util.Calendar instances -->
             <property name="daysExcluded">
-              <null/>
+              <list value-type="java.util.Calendar">
+                <value>2020-01-01T00:00:00.000</value>
+                <value>2020-02-01T00:00:00.000</value>
+                <value>2020-03-01T00:00:00.000</value>
+                <value>2020-04-01T00:00:00.000</value>
+                <value>2020-05-01T00:00:00.000</value>
+                <value>2020-06-01T00:00:00.000</value>
+                <value>2020-07-01T00:00:00.000</value>
+                <value>2020-08-01T00:00:00.000</value>
+                <value>2020-09-01T00:00:00.000</value>
+                <value>2020-10-01T00:00:00.000</value>
+                <value>2020-11-01T00:00:00.000</value>
+                <value>2020-12-01T00:00:00.000</value>
+              </list>
             </property>
+            <property name="description" value="Test org.quartz.impl.calendar.AnnualCalendar instance."/>
           </bean>
         </entry>
 
         <entry key="holidayCalendar">
-          <bean class="org.quartz.impl.calendar.HolidayCalendar">
+          <bean class="com.quartzdesk.test_webapps.quartz.v2.TestHolidayCalendar">
+            <property name="excludedDays">
+              <list value-type="java.util.Date">
+                <value>2020-01-15</value>
+                <value>2020-02-15</value>
+                <value>2020-03-15</value>
+                <value>2020-04-15</value>
+                <value>2020-05-15</value>
+                <value>2020-06-15</value>
+                <value>2020-07-15</value>
+                <value>2020-08-15</value>
+                <value>2020-09-15</value>
+                <value>2020-10-15</value>
+                <value>2020-11-15</value>
+                <value>2020-12-15</value>
+              </list>
+            </property>
+            <property name="description" value="Test com.quartzdesk.test_webapps.quartz.v2.TestHolidayCalendar instance."/>
           </bean>
         </entry>
 
         <entry key="cronCalendar">
           <bean class="org.quartz.impl.calendar.CronCalendar">
             <constructor-arg name="expression" value="0 0 0 * * ? 2100"/>
+            <property name="description" value="Test org.quartz.impl.calendar.CronCalendar instance."/>
+          </bean>
+        </entry>
+
+        <entry key="baseCalendar" value-ref="baseCalendar"/>
+
+        <entry key="calendarWithBaseCalendar">
+          <bean class="org.quartz.impl.calendar.CronCalendar">
+            <constructor-arg name="baseCalendar" ref="baseCalendar"/>
+            <constructor-arg name="expression" value="0 0 0 * * ? *"/>
+            <property name="description" value="Test org.quartz.impl.calendar.CronCalendar instance."/>
+          </bean>
+        </entry>
+
+        <entry key="customCalendar">
+          <bean class="com.quartzdesk.test_webapps.quartz.v2.CustomCalendar">
+            <property name="description" value="Test com.quartzdesk.test_webapps.quartz.v2.CustomCalendar instance."/>
           </bean>
         </entry>
       </map>
