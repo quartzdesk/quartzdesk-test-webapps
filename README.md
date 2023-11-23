@@ -1,6 +1,6 @@
 # Introduction
 
-QuartzDesk Test Web Applications (QTWA) are simple Java test web applications that use various Quartz scheduler versions and logging frameworks (jul, log4j, log4j2, logback). These applications are primarily intended for testing of our Java Quartz scheduler management and monitoring platform [QuartzDesk](http://www.quartzdesk.com).
+QuartzDesk Test Web Applications (QTWA) are simple Java test web applications that use various Quartz scheduler versions and logging frameworks (jul, log4j, log4j2, logback). These applications are primarily intended for testing of our Java Quartz scheduler management and monitoring platform [QuartzDesk](https://quartzdesk.com).
 
 # Requirements
 

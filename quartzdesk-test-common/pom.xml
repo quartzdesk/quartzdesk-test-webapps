@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2020 QuartzDesk.com.
+  ~ Copyright (c) 2013-2024 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -18,7 +18,7 @@
   <parent>
     <groupId>com.quartzdesk-test-webapps</groupId>
     <artifactId>quartzdesk-test-webapps-pom</artifactId>
-    <version>4.0.9</version>
+    <version>5.0.0</version>
   </parent>
 
   <properties>
@@ -50,5 +50,32 @@
     </dependency>
 
   </dependencies>
+
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains>
+            <jdk>
+              <!-- Project will be compiled with Sun JDK version 8 defined in ~/.m2/toolchains.xml -->
+              <version>8</version>
+              <vendor>sun</vendor>
+            </jdk>
+          </toolchains>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
 
 </project>

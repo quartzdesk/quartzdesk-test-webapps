@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2013-2024 QuartzDesk.com.
+  ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
+  -->
+
+<Context>
+  <!--
+    Exclude scanning of bootstrap classpath to avoid StackOverflowError during the classpath scanning performed
+    by Tomcat's JAR scanner. This error seems to occur if there are duplicate JARs on the classpath. For example,
+    JDBC driver JARs. Typically, there is a JDBC driver JAR on the QuartzDesk JVM Agent's classpath (bootclasspath)
+    and there may be the same JDBC driver installed in Tomcat's shared lib folder.
+  -->
+  <JarScanner scanAllDirectories="false" scanAllFiles="false" scanClassPath="false" scanBootstrapClassPath="false" scanManifest="false"/>
+</Context>

@@ -9,7 +9,7 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jstl/fn" %>
 
 <%--
-  ~ Copyright (c) 2013-2020 QuartzDesk.com.
+  ~ Copyright (c) 2013-2024 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   --%>
 

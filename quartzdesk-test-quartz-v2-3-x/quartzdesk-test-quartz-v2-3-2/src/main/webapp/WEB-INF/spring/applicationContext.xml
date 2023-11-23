@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~ Copyright (c) 2013-2020 QuartzDesk.com.
+  ~ Copyright (c) 2013-2024 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -95,14 +95,15 @@
         -->
         <!-- <prop key="org.quartz.scheduler.instanceIdGenerator.class">org.quartz.simpl.HostnameInstanceIdGenerator</prop> -->
 
+        <prop key="org.quartz.scheduler.classLoadHelper.class">org.quartz.simpl.CascadingClassLoadHelper</prop>
+
         <!--
           Must be set to true, otherwise the Quartz scheduler is not registered with the JMX server.
           Defaults to false.
         -->
         <prop key="org.quartz.scheduler.jmx.export">true</prop>
 
-        <prop
-            key="org.quartz.scheduler.jmx.objectName">quartz:type=QuartzScheduler,name=quartzdesk-test-quartz-v2-3-1</prop>
+        <prop key="org.quartz.scheduler.jmx.objectName">quartz:type=QuartzScheduler,name=quartzdesk-test-quartz-v2-3-1</prop>
 
         <!--
           The scheduler thread will be marked as a daemon thread.

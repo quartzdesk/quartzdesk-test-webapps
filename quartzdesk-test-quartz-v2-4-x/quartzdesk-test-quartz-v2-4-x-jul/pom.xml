@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2020 QuartzDesk.com.
+  ~ Copyright (c) 2013-2024 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -12,19 +12,19 @@
   <packaging>war</packaging>
 
   <description>
-    A test web-application build on top of Quartz API v2.4.0-SNAPSHOT and JUL logging API.
+    A test web-application build on top of Quartz v2.4.0 and JUL logging API.
   </description>
 
   <parent>
     <groupId>com.quartzdesk-test-webapps</groupId>
     <artifactId>quartzdesk-test-quartz-v2-4-x</artifactId>
-    <version>4.0.9</version>
+    <version>5.0.0</version>
   </parent>
 
   <properties>
     <module.name>com.quartzdesk.test_webapps.quartz.v2_4_x_jul</module.name>
 
-    <org.quartz-scheduler.quartz.version>2.4.0-SNAPSHOT</org.quartz-scheduler.quartz.version>
+    <org.quartz-scheduler.quartz.version>2.4.0-rc2</org.quartz-scheduler.quartz.version>
   </properties>
 
   <dependencies>

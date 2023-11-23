@@ -55,7 +55,7 @@ CATALINA_OPTS="${CATALINA_OPTS} -Dcom.sun.management.jmxremote.authenticate=fals
 
 ### QuartzDesk Standard / Enterprise Edition
  
-In order to use the advanced functionality of the QuartzDesk platform, you will need to install the QuartzDesk JVM Agent. For details on how to install the agent, please refer to the [QuartzDesk JVM Agent Installation and Upgrade Guide](https://www.quartzdesk.com/documentation/installation-and-upgrade-guides) for your application server / servlet container.
+In order to use the advanced functionality of the QuartzDesk platform, you will need to install the QuartzDesk JVM Agent. For details on how to install the agent, please refer to the [QuartzDesk JVM Agent Installation and Upgrade Guide](https://quartzdesk.com/documentation/installation-and-upgrade-guides) for your application server / servlet container.
   
 The QuartzDesk JVM Agent provides two JMX connectors that can be enabled in the agent configuration file (`quartzdesk-agent.properties`). If you decide not to use the QuartzDesk JVM Agent nor these JMX connectors, please follow the steps for the QuartzDesk Lite edition. 
   
