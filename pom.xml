@@ -11,7 +11,7 @@
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>5.0.0</version>
+  <version>5.0.1-SNAPSHOT</version>
 
   <name>QuartzDesk Test Web Applications</name>
 
