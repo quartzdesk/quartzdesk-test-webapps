@@ -24,7 +24,7 @@
   <properties>
     <module.name>com.quartzdesk.test_webapps.quartz.v2_1_5</module.name>
 
-    <org.quartz-scheduler.quartz.version>2.1.5</org.quartz-scheduler.quartz.version>
+    <org.quartz-scheduler.quartz.version>2.3.2</org.quartz-scheduler.quartz.version>
   </properties>
 
   <dependencies>
