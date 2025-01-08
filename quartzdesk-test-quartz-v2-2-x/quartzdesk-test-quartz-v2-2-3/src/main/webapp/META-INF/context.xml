@@ -1,10 +1,17 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2024 QuartzDesk.com.
+  ~ Copyright (c) 2013-2025 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
 <Context>
+  <!--
+    Required by Tomcat >= 10.x due to Java EE to Jakarta EE changes (javax.* to jakarta.* package renaming).
+    For details, please refer to:
+    https://stackoverflow.com/questions/66711660/tomcat-10-x-throws-java-lang-noclassdeffounderror-on-javax-servlet-servletreques
+  -->
+  <Loader jakartaConverter="TOMCAT" />
+
   <!--
     Exclude scanning of bootstrap classpath to avoid StackOverflowError during the classpath scanning performed
     by Tomcat's JAR scanner. This error seems to occur if there are duplicate JARs on the classpath. For example,

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2013-2024 QuartzDesk.com.
+  ~ Copyright (c) 2013-2025 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
@@ -11,7 +11,7 @@
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>5.0.2</version>
+  <version>5.0.5</version>
 
   <name>QuartzDesk Test Web Applications</name>
 
@@ -53,7 +53,7 @@
   <properties>
     <module.name>com.quartzdesk.test_webapps</module.name>
 
-    <com.quartzdesk.version>5.0.2</com.quartzdesk.version>
+    <com.quartzdesk.version>5.0.5</com.quartzdesk.version>
 
     <!--
       Implementation-Vendor-Id used in manifests.
