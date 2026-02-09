@@ -100,7 +100,7 @@
 
     <org.slf4j.version>2.0.17</org.slf4j.version>
 
-    <org.springframework.version>6.2.12</org.springframework.version>
+    <org.springframework.version>6.2.15</org.springframework.version>
   </properties>
 
 
