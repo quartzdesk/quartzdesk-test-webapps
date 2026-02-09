@@ -4,11 +4,11 @@
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         id="quartzdesk-test-quartz-v2-2-x-logback"
-         version="2.4"
-         xmlns="http://java.sun.com/xml/ns/j2ee"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+<web-app id="quartzdesk-test-quartz-v2-2-x-logback"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
 
   <description>Quartz 2.2.x Test Application (Logback)</description>
   <display-name>quartzdesk-test-quartz-v2-2-x-logback</display-name>

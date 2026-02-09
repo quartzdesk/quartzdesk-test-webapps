@@ -16,7 +16,6 @@
 
 package com.quartzdesk.test_webapps.common.spring.propertyeditors;
 
-import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 import java.beans.PropertyEditorSupport;
@@ -35,7 +34,6 @@ import java.util.Date;
 public class CustomCalendarEditor
     extends PropertyEditorSupport
 {
-
   private final boolean allowEmpty;
 
   private final SimpleDateFormat dateFormat;
@@ -77,7 +75,7 @@ public class CustomCalendarEditor
    * Parse the Date from the given text, using the specified DateFormat.
    */
   @Override
-  public void setAsText( @Nullable String text )
+  public void setAsText( String text )
       throws IllegalArgumentException
   {
     if ( allowEmpty && !StringUtils.hasText( text ) )
@@ -101,5 +99,4 @@ public class CustomCalendarEditor
       }
     }
   }
-
 }

@@ -1,11 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
-  ~ Copyright (c) 2013-2024 QuartzDesk.com.
+  ~ Copyright (c) 2013-2025 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>quartzdesk-test-quartz-v1-8-x</artifactId>
@@ -18,7 +19,7 @@
   <parent>
     <groupId>com.quartzdesk-test-webapps</groupId>
     <artifactId>quartzdesk-test-webapps-pom</artifactId>
-    <version>5.0.5</version>
+    <version>6.0.0</version>
   </parent>
 
 
@@ -63,12 +64,12 @@
                   <version>3.2.5</version>
                 </requireMavenVersion>
                 <requireJavaVersion>
-                  <version>1.8</version>
+                  <version>17</version>
                 </requireJavaVersion>
-<!--                <enforceBytecodeVersion>-->
-<!--                  &lt;!&ndash; quartzdesk-api.jar contains quartzdesk-api-scheduler-quartz-v2-5-x classes compiled with Java 11 &ndash;&gt;-->
-<!--                  <maxJdkVersion>11</maxJdkVersion>-->
-<!--                </enforceBytecodeVersion>-->
+                <enforceBytecodeVersion>
+                  <!-- quartzdesk-api.jar has been compiled with Java 17 -->
+                  <maxJdkVersion>17</maxJdkVersion>
+                </enforceBytecodeVersion>
               </rules>
             </configuration>
           </execution>
@@ -87,9 +88,9 @@
         <configuration>
           <toolchains>
             <jdk>
-              <!-- Project will be compiled with Sun JDK version 8 defined in ~/.m2/toolchains.xml -->
-              <version>8</version>
-              <vendor>sun</vendor>
+              <!-- Project will be compiled with Oracle JDK version 17 defined in ~/.m2/toolchains.xml -->
+              <vendor>oracle</vendor>
+              <version>17</version>
             </jdk>
           </toolchains>
         </configuration>

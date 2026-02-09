@@ -1,17 +1,18 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ Copyright (c) 2013-2025 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.quartzdesk-test-webapps</groupId>
   <artifactId>quartzdesk-test-webapps-pom</artifactId>
   <packaging>pom</packaging>
-  <version>5.0.5</version>
+  <version>6.0.0</version>
 
   <name>QuartzDesk Test Web Applications</name>
 
@@ -53,7 +54,7 @@
   <properties>
     <module.name>com.quartzdesk.test_webapps</module.name>
 
-    <com.quartzdesk.version>5.0.5</com.quartzdesk.version>
+    <com.quartzdesk.version>6.0.0</com.quartzdesk.version>
 
     <!--
       Implementation-Vendor-Id used in manifests.
@@ -67,14 +68,12 @@
     -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <!--
-      Most recent version that still supports Java 8.
-    -->
-    <ch.qos.logback.vesion>1.3.14</ch.qos.logback.vesion>
+    <ch.qos.logback.version>1.5.21</ch.qos.logback.version>
 
     <!--
+      Used by quartzdesk-test-quartz-v1-8-x, quartzdesk-test-quartz-v2-0-x.
+
       servlet-api 3.1 (JavaEE 7)
-      jsp-api 2.3 (JavaEE 7)
 
         GlassFish >= 4.0 (https://en.wikipedia.org/wiki/GlassFish)
         JBoss     >= 7.0 (https://access.redhat.com/articles/113373)
@@ -86,11 +85,22 @@
     <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
 
     <!--
-      Most recent version that still supports Java 8.
-    -->
-    <org.slf4j.version>2.0.13</org.slf4j.version>
+      Used by quartzdesk-test-quartz-v2-1-x, quartzdesk-test-quartz-v2-2-x, quartzdesk-test-quartz-v2-3-x,
+      quartzdesk-test-quartz-v2-4-x, quartzdesk-test-quartz-v2-5-x.
 
-    <org.springframework.version>5.3.36</org.springframework.version>
+      servlet-api 6.0.0 (Jakarta EE 10)
+
+        GlassFish >= 7.0 (https://en.wikipedia.org/wiki/GlassFish)
+        JBoss     >= 8.0 (https://access.redhat.com/articles/113373)
+        Tomcat    >= 10.1.x (https://tomcat.apache.org/whichversion.html)
+        WebSphere Liberty >= 23.0.0.3 (https://en.wikipedia.org/wiki/IBM_WebSphere_Application_Server#Version_history)
+        WildFly   >= 33.0.0 (https://docs.wildfly.org/)
+    -->
+    <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+
+    <org.slf4j.version>2.0.17</org.slf4j.version>
+
+    <org.springframework.version>6.2.12</org.springframework.version>
   </properties>
 
 
@@ -121,14 +131,14 @@
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>${ch.qos.logback.vesion}</version>
+        <version>${ch.qos.logback.version}</version>
       </dependency>
 
 
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
-        <version>${ch.qos.logback.vesion}</version>
+        <version>${ch.qos.logback.version}</version>
       </dependency>
 
 
@@ -149,6 +159,7 @@
       </dependency>
 
 
+      <!-- Used by Quartz 1.8 and Quartz 2.0 test webapps -->
       <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
@@ -156,11 +167,12 @@
       </dependency>
 
 
-<!--      <dependency>-->
-<!--        <groupId>javax</groupId>-->
-<!--        <artifactId>javaee-api</artifactId>-->
-<!--        <version>6.0</version>-->
-<!--      </dependency>-->
+      <!-- Used by Quartz 2.1 and newer test webapps -->
+      <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>${jakarta.servlet-api.version}</version>
+      </dependency>
 
 
       <dependency>
@@ -196,13 +208,6 @@
         <artifactId>log4j-slf4j-impl</artifactId>
         <version>2.22.0</version>
       </dependency>
-
-
-<!--      <dependency>-->
-<!--        <groupId>org.jvnet.jaxb2_commons</groupId>-->
-<!--        <artifactId>jaxb2-basics-runtime</artifactId>-->
-<!--        <version>1.11.1</version>-->
-<!--      </dependency>-->
 
 
       <dependency>
@@ -402,21 +407,6 @@
       </dependency>
 
 
-<!--      <dependency>-->
-<!--        <groupId>org.springframework.ws</groupId>-->
-<!--        <artifactId>spring-ws-core</artifactId>-->
-<!--        <version>${org.springframework.ws.version}</version>-->
-
-<!--        <exclusions>-->
-<!--          &lt;!&ndash; Commons-logging API provided by the SLF4j jcl-over-slf4j bridge &ndash;&gt;-->
-<!--          <exclusion>-->
-<!--            <groupId>commons-logging</groupId>-->
-<!--            <artifactId>commons-logging</artifactId>-->
-<!--          </exclusion>-->
-<!--        </exclusions>-->
-<!--      </dependency>-->
-
-
       <!--
         Most recent version that still supports Java 8.
       -->
@@ -492,7 +482,7 @@
 
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.13.0</version>
+          <version>3.14.1</version>
           <configuration>
             <!-- Include debugging information in generated bytecode. -->
             <debug>true</debug>
@@ -510,7 +500,7 @@
 
         <plugin>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.5.0</version>
+          <version>3.6.1</version>
           <dependencies>
             <!--
               Extra enforcer rules not provided by Maven Enforcer Plugin out of the box.
@@ -519,7 +509,7 @@
             <dependency>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>extra-enforcer-rules</artifactId>
-              <version>1.7.0</version>
+              <version>1.10.0</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -527,7 +517,7 @@
 
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.4.1</version>
+          <version>3.4.2</version>
           <configuration>
             <archive>
               <!--
@@ -560,13 +550,16 @@
 
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.7.0</version>
+          <version>3.12.0</version>
+          <configuration>
+            <quiet>true</quiet>
+          </configuration>
         </plugin>
 
 
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
-          <version>3.0.1</version>
+          <version>3.1.1</version>
         </plugin>
 
 
@@ -578,7 +571,7 @@
 
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.3.0</version>
+          <version>3.3.1</version>
         </plugin>
 
 
@@ -627,7 +620,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
-          <version>3.6.0</version>
+          <version>3.6.1</version>
         </plugin>
 
       </plugins>

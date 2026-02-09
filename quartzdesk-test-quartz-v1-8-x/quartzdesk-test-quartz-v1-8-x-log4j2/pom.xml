@@ -1,11 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ Copyright (c) 2013-2025 QuartzDesk.com.
   ~ Licensed under the MIT license (https://opensource.org/licenses/MIT).
   -->
 
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>quartzdesk-test-quartz-v1-8-x-log4j2</artifactId>
@@ -18,7 +19,7 @@
   <parent>
     <groupId>com.quartzdesk-test-webapps</groupId>
     <artifactId>quartzdesk-test-quartz-v1-8-x</artifactId>
-    <version>5.0.5</version>
+    <version>6.0.0</version>
   </parent>
 
   <properties>
